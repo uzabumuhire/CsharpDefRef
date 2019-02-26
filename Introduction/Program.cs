@@ -6,13 +6,11 @@ namespace Introduction
     {
         static void Main(string[] args)
         {
-            // New features in .0
-
-            // C# 7 : numerical literals with digital separators
+            // C# 7 : numerical literals with digital separators.
             int million = 1_000_000;
             Console.WriteLine(million);
 
-            // C# 7 : binary literals specified with 0b
+            // C# 7 : binary literals specified with 0b.
             var b = 0b1010_1011_1100_1101_1110_1111;
             Console.WriteLine(b);
 
@@ -66,6 +64,40 @@ namespace Introduction
 
             // C# 7: `throw` expressions
             Console.WriteLine(Capitalize("test"));
+
+            // C# 6: null-conditional ('Elvis') operator avoids having to
+            // explicitly check for null before calling a method or accessing
+            // a type member.
+
+            // s evaluates to null instead of 
+            // throwing a NullReferenceException.
+            System.Text.StringBuilder sb = null;
+            string s = sb?.ToString(); // s is `null`
+
+            // C# 6:  index initializers allow single-step initialization of any
+            // type that exposes an indexer.
+            var dict = new System.Collections.Generic.Dictionary<int, string>()
+            {
+                [3] = "three",
+                [10] = "ten"
+            };
+
+            // C# 6: string interpolation offers an alternative 
+            // to `string.Format`
+            string s1 = $"It is {DateTime.Now.DayOfWeek}";
+
+            // C# 6: exception filters let you apply a condition
+            // let you a condition to a catch block.
+            string html;
+            try
+            {
+                html = new System.Net.WebClient().DownloadString("http://asef");
+            }
+            catch (System.Net.WebException ex) 
+            when (ex.Status == System.Net.WebExceptionStatus.Timeout)
+            {
+                // Handle the error
+            }
         }
 
         static void DiscardOutParameters(out int x, out int y, out int z)
@@ -140,7 +172,7 @@ namespace Introduction
             char.ToUpper(value[0]) + value.Substring(1);
     }
 
-    public class Person
+    class Person
     {
         // C# 6 introduced the expression-bodied "fat-arrow" syntax
         // for methods, read-only properties, operators and indexers.
@@ -172,5 +204,24 @@ namespace Introduction
 
             lastName = names[names.Length - 1];
         }
+    }
+
+    class Test
+    {
+        // C# 6: expression-bodied functions allow methods, properties, 
+        // operators, and indexers that comprise a single expression to be
+        // written more tersely, in the style of lambda expression.
+        public  int TimesTwo(int x) => x * 2;
+        public string SomeProperty => "Property value";
+
+        // C# 6: property intializers let you assign a value to an automatic
+        // property.
+        public DateTime TimeCreated { get; set; } = DateTime.Now;
+
+        // Initialized property can also be read-only.
+        public DateTime TimeCreatedReadOnly { get; } = DateTime.Now;
+
+        // Read-only properties can be set in the constructor, making it easier
+        // to create immutable (read-only) types.
     }
 }
