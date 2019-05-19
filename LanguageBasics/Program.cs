@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System; // Importing namespace
 
-namespace LanguageBasics
+namespace Basics
 {
     class Program
     {
