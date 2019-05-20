@@ -25,6 +25,13 @@ namespace Collections
             Console.WriteLine();
             TestDictionaries();
 
+            // LISTS
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("LISTS");
+            Console.WriteLine();
+            TestLists();
+
         }
 
         static void TestEnumeration()
@@ -115,6 +122,17 @@ namespace Collections
 
             // Testing how to use the `SortedList<Tkey, TValue>`
             Dictionaries.TestSortedList();
+        }
+
+        static  void TestLists()
+        {
+            // Tests accessing arrays via `IList` indexer.
+            Lists.ArrayListIndexers();
+
+            Console.WriteLine();
+
+            // Tests arrays structural equality comparison.
+            Lists.ArraysEqualityComparison();
         }
     }
 }
