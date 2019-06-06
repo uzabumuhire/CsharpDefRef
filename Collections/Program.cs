@@ -132,7 +132,33 @@ namespace Collections
             Console.WriteLine();
 
             // Tests arrays structural equality comparison.
-            Lists.ArraysEqualityComparison();
+            Lists.ArrayEqualityComparison();
+
+            Console.WriteLine();
+
+            // Tests arrays creation and indexing.
+            Lists.ArrayConstructionIndexing();
+
+            Console.WriteLine();
+
+            // Tests arrays enumeration.
+            Lists.ArrayEnumeration();
+
+            Console.WriteLine();
+
+            // Tests arrays searching.
+            Lists.ArraySearch();
+
+            Console.WriteLine();
+
+            // Tests arrays sorting.
+            Lists.ArraySort();
+
+            Console.WriteLine();
+
+            // Tests arrays converting.
+            Lists.ArrayConvert();
+
         }
     }
 }
