@@ -126,6 +126,8 @@ namespace Collections
 
         static  void TestLists()
         {
+            // Testing Array class
+
             // Tests accessing arrays via `IList` indexer.
             Lists.ArrayListIndexers();
 
@@ -158,6 +160,23 @@ namespace Collections
 
             // Tests arrays converting.
             Lists.ArrayConvert();
+
+            Console.WriteLine();
+
+            // Testing List<T> class
+            Lists.GenericList();
+
+            Console.WriteLine();
+
+            // Testing ArrayList class
+            Lists.NonGenericList();
+
+            Console.WriteLine();
+
+            // Testing LinkedList<T> class
+            Lists.GenericLinkedList();
+
+
 
         }
     }

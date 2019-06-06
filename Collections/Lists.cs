@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,13 +9,16 @@ namespace Collections
 {
     static class Lists
     {
+
+        // Testing Array class
+
         // Tests accessing arrays via `IList` indexer.
         internal static void ArrayListIndexers()
         {
             object[] a1 = { "string", 123, true };
             FirstOrNull(a1);
             Console.Write(FirstOrNull(a1));        // string
-            Console.Write(" | ");
+            DisplayBar();
 
             object[][] a2 = { 
                 new object[]{ "string", 123, true },
@@ -48,9 +52,9 @@ namespace Collections
             // Two distinct arrays will always fail an equality test - unless
             // you use a custom equality comparer.
             Console.Write(a1 == a2);        // False
-            Console.Write(" | ");
+            DisplayBar();
             Console.Write(a1.Equals(a2));   // False
-            Console.Write(" | ");
+            DisplayBar();
 
             // Use of a custom equality comparer `StructuralComparisons`
             // to compare elements in an array.
@@ -64,10 +68,9 @@ namespace Collections
         {
             // Create and index arrays through C#'s language constructs.
             int[] myArray = { 1, 2, 3 };
+            DisplayBar();
             Console.Write(
-                " | First element : {0} Last element {1}", 
-                myArray[0], 
-                myArray[1]);
+                "First element : {0} Last element {1}", myArray[0], myArray[1]);
 
             // Instantiate arrays dynamically by calling `Array.CreateInstance`
             // and specifying element type and rank (number of dimensions)
@@ -78,7 +81,8 @@ namespace Collections
             a.SetValue("hi", 0); // a[0] = "hi"
             a.SetValue("there", 1); // a[1] = "there"
             string s1 = (string) a.GetValue(0); // s = a[0]
-            Console.Write(" | " + s1);
+            DisplayBar();
+            Console.Write(s1);
 
             // Casting to a C# array. Zero-indexed arrays created dynamically 
             // can be cast to a C# array of a matching or compatible type
@@ -89,30 +93,33 @@ namespace Collections
             // First element of any array regardless of rank.
             int[] a2 = { 9, 2, 3 };
             int[,] a3 = { { 5, 6 }, { 7, 8 } };
-            PrintFirstValue(a2);
-            PrintFirstValue(a3);
-            PrintFirstValue<int>(a2);
+            DisplayFirstValue(a2);
+            DisplayFirstValue(a3);
+            DisplayFirstValue<int>(a2);
         }
 
         // `GetValue` and `SetValue` are useful when writing methods that can deal
         // an array  of any type and rank. For multidimensional arrays, they
         // accept an array of indexers.
-        static void PrintFirstValue(Array a)
+        static void DisplayFirstValue(Array a)
         {
-            Console.Write(" | " + a.Rank + "-dimensional");
+            DisplayBar();
+            Console.Write(a.Rank + "-dimensional");
 
             // The indexers array will automatically initialize to all zeros,
             // so passing it into `GetValue` or `SetValue` will get/set the
             // zero based (i.e, first) element int the array.
             int[] indexers = new int[a.Rank];
-            Console.Write(" | " + a.GetValue(indexers));
+            DisplayBar();
+            Console.Write(a.GetValue(indexers));
         }
 
         // Working with arrays of unknown type but known rank,
         // generics provice a more efficient solution.
-        static void PrintFirstValue<T>(T[] array)
+        static void DisplayFirstValue<T>(T[] array)
         {
-            Console.Write(" | " + array[0]);
+            DisplayBar();
+            Console.Write(array[0]);
         }
 
         // Enumerating arrays.
@@ -188,9 +195,95 @@ namespace Collections
             Array.ForEach(wholes, WriteSpaceVal);
         }
 
+        // Testing List<T> class
+        internal static void GenericListTest()
+        {
+            List<string> words = new List<string>();
+
+            words.Add("melon");
+            words.Add("avocado");
+            words.AddRange(new[] { "banana", "plum" });
+            words.ForEach(WriteSpaceVal);
+
+            words.Insert(0, "lemon"); // Insert at start
+            words.InsertRange(0, new[] { "peach", "nashi" }); // Insert at start
+            DisplayBar();
+            words.ForEach(WriteSpaceVal);
+
+            DisplayBar();
+            Console.Write(words[0]); // first element
+            DisplayBar();
+            Console.Write(words[words.Count - 1]); // last element
+
+            List<string> subset = words.GetRange(1, 2); // 2nd -> 3rd words
+            DisplayBar();
+            subset.ForEach(WriteSpaceVal);
+
+            string[] wordsArray = words.ToArray(); // Creates a new typed array
+            DisplayBar();
+            Array.ForEach(wordsArray, WriteSpaceVal);
+
+            // Copy the first two elements to the end of an existing array.
+            string[] existingArray = new string[1000];
+            words.CopyTo(0, existingArray, 998, 2);
+
+            // Converting to upper case.
+            List<string> upperCaseWords = words.ConvertAll(s => s.ToUpper());
+            DisplayBar();
+            upperCaseWords.ForEach(WriteSpaceVal);
+
+            // Converting to lengths.
+            List<int> lengths = words.ConvertAll(s => s.Length);
+            DisplayBar();
+            lengths.ForEach(WriteSpaceVal);
+
+            words.Remove("melon");
+            words.RemoveAt(3);
+            words.RemoveRange(0, 2); // Removes the first 2 elements
+            DisplayBar();
+            words.ForEach(WriteSpaceVal);
+
+            // Remove all strings containing 'n'.
+            words.RemoveAll(s => s.Contains("n"));
+            DisplayBar();
+            words.ForEach(WriteSpaceVal);
+        }
+
+        // Testing ArrayList class
+        internal static void TestNonGenericList()
+        {
+            // ArrayList class requires casts.
+            ArrayList al = new ArrayList();
+            al.Add("hello");
+            al.Add("world");
+            string first = (string)al[0];
+            Console.Write(first);
+
+            string[] strArr = (string[])al.ToArray(typeof(string));
+            DisplayBar();
+            Array.ForEach(strArr, WriteSpaceVal);
+
+            // `ArrayList` casts cannot be verified by the compiler,
+            // the following compiles but fails at runtime.
+            //int firstItem = (int)al[0]; 
+
+            // Using `System.Linq.Enumerable` extension methods `Cast` and  
+            // `ToList`, you  can convert an `ArrayList` to a generic `List`.
+            ArrayList numbers = new ArrayList();
+            numbers.AddRange(new[] { 1, 5, 9 });
+            List<int> list = numbers.Cast<int>().ToList();
+            DisplayBar();
+            list.ForEach(WriteSpaceVal);
+        }
+
         static void WriteSpaceVal<T>(T val)
         {
-            Console.Write(" " + val);
+            Console.Write(val + " ");
+        }
+
+        static void DisplayBar()
+        {
+            Console.Write(" | ");
         }
     }
 }
