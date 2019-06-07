@@ -316,17 +316,17 @@ namespace Collections
             tune.AddAfter(tune.First, "re");
             tune.AddAfter(tune.First.Next, "mi");
             tune.AddBefore(tune.Last, "fa");
-            DisplayEnumerableCollection(tune);
+            DisplayCollectionWithSpace(tune);
 
             tune.RemoveFirst();
             tune.RemoveLast();
             DisplayBar();
-            DisplayEnumerableCollection(tune);
+            DisplayCollectionWithSpace(tune);
 
             LinkedListNode<string> miNode = tune.Find("mi");
             tune.Remove(miNode);
             DisplayBar();
-            DisplayEnumerableCollection(tune);
+            DisplayCollectionWithSpace(tune);
 
             tune.AddFirst(miNode);
         }
@@ -341,11 +341,11 @@ namespace Collections
             q.Enqueue(10);
             q.Enqueue(20);
 
-            DisplayEnumerableCollection(q);
+            DisplayCollectionWithSpace(q);
 
             int[] data = q.ToArray();
             DisplayBar();
-            DisplayEnumerableCollection(data);
+            DisplayCollectionWithSpace(data);
 
             DisplayBar();
             Console.Write(q.Count);
@@ -368,7 +368,7 @@ namespace Collections
             s.Push(2);
             s.Push(3);
 
-            DisplayEnumerableCollection(s);
+            DisplayCollectionWithSpace(s);
             DisplayBar();
             Console.Write(s.Count);
             DisplayBar();
@@ -379,15 +379,82 @@ namespace Collections
             Console.Write(s.Pop());
             DisplayBar();
             Console.Write(s.Pop());
+        }
+
+        /// <summary>
+        /// Tests the generic HashSet class.
+        /// </summary>
+        internal static void GenericHashSet()
+        {
+            // Constructs a `HashSet<char>` from an existing collection.
+            // The reason we pass `string` into `HashSet<char>` is because
+            // implements `IEnumerable<char>`.
+            HashSet<char> letters = new HashSet<char>("the quick brown fox");
+
+            // Enumerate the collection (notice the abscence of duplicates).
+            DisplayCollectionWithoutSpace(letters);
+
+            // Tests membership.
+            DisplayBar();
+            Console.Write(letters.Contains('t'));
+            DisplayBar();
+            Console.Write(letters.Contains('j'));
+
+            // Extracts all the vowels from our set of characters.
+            HashSet<char> lettersSet1 = new HashSet<char>(letters);
+            lettersSet1.IntersectWith("aeiou");
+            DisplayBar();
+            DisplayCollectionWithoutSpace(lettersSet1);
+
+            // Strips all the vowels from the set.
+            HashSet<char> lettersSet2 = new HashSet<char>(letters);
+            lettersSet2.ExceptWith("aeiou");
+            DisplayBar();
+            DisplayCollectionWithoutSpace(lettersSet2);
+
+            // Removes all but the elements that are unique to one set or the
+            // other. 
+            HashSet<char> lettersSet3 = new HashSet<char>(letters);
+            lettersSet3.SymmetricExceptWith("the lazy brown fox");
+            DisplayBar();
+            DisplayCollectionWithoutSpace(lettersSet3);
 
         }
 
         /// <summary>
-        /// Displays the enumerable collection.
+        /// Tests the generic `SortedSet` class.
+        /// </summary>
+        internal static void GenericSortedSet()
+        {
+            SortedSet<char> letters = new SortedSet<char>("the quick brOwn fox");
+            DisplayCollectionWithoutSpace(letters);
+
+            DisplayBar();
+
+            // Obtain letters between 'f' and 'j'.
+            foreach (char c in letters.GetViewBetween('f', 'j'))
+            {
+                Console.Write(c);
+            }
+
+            DisplayBar();
+
+            // Obtain only lower cases letters.
+            foreach (char c in letters.GetViewBetween('a', 'z'))
+            {
+                Console.Write(c);
+            }
+
+        }
+
+        /// <summary>
+        /// Displays elements of the enumerable collection with space.
         /// </summary>
         /// <param name="ec">enumerable collection</param>
         /// <typeparam name="T">type of the elements</typeparam>
-        static void DisplayEnumerableCollection<T>(IEnumerable<T> ec)
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <see cref="System.Console"/>
+        static void DisplayCollectionWithSpace<T>(IEnumerable<T> ec)
         {
             foreach (T item in ec)
             {
@@ -395,9 +462,29 @@ namespace Collections
             }
         }
 
+        /// <summary>
+        /// Displays elements of the enumerable collection without space.
+        /// </summary>
+        /// <param name="ec">enumerable collection</param>
+        /// <typeparam name="T">type of the elements</typeparam>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <see cref="System.Console"/>
+        static void DisplayCollectionWithoutSpace<T>(IEnumerable<T> ec)
+        {
+            foreach (T item in ec)
+            {
+                WriteVal(item, "");
+            }
+        }
+
         static void WriteSpaceVal<T>(T val)
         {
             Console.Write(val + " ");
+        }
+
+        static void WriteVal<T>(T val, string separator)
+        {
+            Console.Write(val + separator);
         }
 
         static void DisplayBar()

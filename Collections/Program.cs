@@ -126,7 +126,7 @@ namespace Collections
 
         static  void TestLists()
         {
-            // Testing Array class
+            // Testing `Array` class
 
             // Tests accessing arrays via `IList` indexer.
             Lists.ArrayListIndexers();
@@ -163,28 +163,38 @@ namespace Collections
 
             Console.WriteLine();
 
-            // Testing List<T> class.
+            // Testing `List<T>` class.
             Lists.GenericList();
 
             Console.WriteLine();
 
-            // Testing ArrayList class.
+            // Testing `ArrayList` class.
             Lists.NonGenericList();
 
             Console.WriteLine();
 
-            // Testing LinkedList<T> class.
+            // Testing `LinkedList<T>` class.
             Lists.GenericLinkedList();
 
             Console.WriteLine();
 
-            // Testing Queue<T> class.
+            // Testing `Queue<T>` class.
             Lists.GenericQueue();
 
             Console.WriteLine();
 
-            // Testing Stack<T> class.
+            // Testing `Stack<T` class.
             Lists.GenericStack();
+
+            Console.WriteLine();
+
+            // Testing `HashSet<T>`class.
+            Lists.GenericHashSet();
+
+            Console.WriteLine();
+
+            // Testing `SortedSet<T>` class.
+            Lists.GenericSortedSet();
 
         }
     }
