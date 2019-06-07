@@ -12,7 +12,9 @@ namespace Collections
 
         // Testing Array class
 
-        // Tests accessing arrays via `IList` indexer.
+        /// <summary>
+        /// Tests accessing arrays via `IList` indexer.
+        /// </summary>
         internal static void ArrayListIndexers()
         {
             object[] a1 = { "string", 123, true };
@@ -20,14 +22,18 @@ namespace Collections
             Console.Write(FirstOrNull(a1));        // string
             DisplayBar();
 
-            object[][] a2 = { 
+            object[][] a2 = {
                 new object[]{ "string", 123, true },
                 new object[]{ "string", 123, true } };
             Console.Write(FirstOrNull(a2));        // null
         }
 
-        // Protects against accesssing a multi-dimensional array via
-        // `IList` indexer.
+        /// <summary>
+        /// Protects against accesssing a multi-dimensional array via
+        /// `IList` indexer.
+        /// </summary>
+        /// <returns>The or null.</returns>
+        /// <param name="l">L.</param>
         static object FirstOrNull(IList l)
         {
             // An `ArgumentException` is thrown if you try to access
@@ -42,8 +48,10 @@ namespace Collections
             return null;
         }
 
-        // Compares arrays equality structurally by using the
-        // custom equaliy comparer `StructuralComparisons`.
+        /// <summary>
+        /// Compares arrays equality structurally by using the
+        /// custom equaliy comparer `StructuralComparisons`.
+        /// </summary>
         internal static void ArrayEqualityComparison()
         {
             object[] a1 = { "string", 123, true };
@@ -63,7 +71,9 @@ namespace Collections
                 StructuralComparisons.StructuralEqualityComparer)); // True
         }
 
-        // Demonstrating arrays construction and indexing.
+        /// <summary>
+        /// Demonstrates arrays construction and indexing.
+        /// </summary>
         internal static void ArrayConstructionIndexing()
         {
             // Create and index arrays through C#'s language constructs.
@@ -80,7 +90,7 @@ namespace Collections
             Array a = Array.CreateInstance(typeof(string), 2); // string[] a = new string[2]
             a.SetValue("hi", 0); // a[0] = "hi"
             a.SetValue("there", 1); // a[1] = "there"
-            string s1 = (string) a.GetValue(0); // s = a[0]
+            string s1 = (string)a.GetValue(0); // s = a[0]
             DisplayBar();
             Console.Write(s1);
 
@@ -98,9 +108,12 @@ namespace Collections
             DisplayFirstValue<int>(a2);
         }
 
-        // `GetValue` and `SetValue` are useful when writing methods that can deal
-        // an array  of any type and rank. For multidimensional arrays, they
-        // accept an array of indexers.
+        /// <summary>
+        /// `GetValue` and `SetValue` are useful when writing methods that can deal
+        /// an array  of any type and rank. For multidimensional arrays, they
+        /// accept an array of indexers.
+        /// </summary>
+        /// <param name="a">The alpha component.</param>
         static void DisplayFirstValue(Array a)
         {
             DisplayBar();
@@ -114,15 +127,21 @@ namespace Collections
             Console.Write(a.GetValue(indexers));
         }
 
-        // Working with arrays of unknown type but known rank,
-        // generics provice a more efficient solution.
+        /// <summary>
+        /// Working with arrays of unknown type but known rank,
+        /// generics provice a more efficient solution.
+        /// </summary>
+        /// <param name="array">Array.</param>
+        /// <typeparam name="T">The 1st type parameter.</typeparam>
         static void DisplayFirstValue<T>(T[] array)
         {
             DisplayBar();
             Console.Write(array[0]);
         }
 
-        // Enumerating arrays.
+        /// <summary>
+        /// Testing arrays enumeration/iteration.
+        /// </summary>
         internal static void ArrayEnumeration()
         {
             // Enumerating using `foreach`.
@@ -139,7 +158,9 @@ namespace Collections
 
         }
 
-        // Search an array of strings for a name containing the letter a.
+        /// <summary>
+        /// Search an array of strings for a name containing the letter a..
+        /// </summary>
         internal static void ArraySearch()
         {
             string[] names = { "Rodney", "Jack", "Jill" };
@@ -154,7 +175,9 @@ namespace Collections
             return name.Contains("a");
         }
 
-        // Sorting arrays
+        /// <summary>
+        /// Testing sorting arrays.
+        /// </summary>
         internal static void ArraySort()
         {
             // Sorting a single array.
@@ -176,14 +199,15 @@ namespace Collections
             int[] numbers3 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             Array.ForEach(numbers3, WriteSpaceVal);
             Array.Sort(
-                numbers3, 
+                numbers3,
                 (x, y) => x % 2 == y % 2 ? 0 : x % 2 == 1 ? -1 : 1
                 );
             Array.ForEach(numbers3, WriteSpaceVal);
         }
 
-
-        // Converting 
+        /// <summary>
+        /// Testing arrays converters.
+        /// </summary>
         internal static void ArrayConvert()
         {
             float[] reals = { 1.3f, 1.5f, 1.8f };
@@ -195,8 +219,10 @@ namespace Collections
             Array.ForEach(wholes, WriteSpaceVal);
         }
 
-        // Testing List<T> class
-        internal static void GenericListTest()
+        /// <summary>
+        /// Testing generic List class.
+        /// </summary>
+        internal static void GenericList()
         {
             List<string> words = new List<string>();
 
@@ -249,8 +275,10 @@ namespace Collections
             words.ForEach(WriteSpaceVal);
         }
 
-        // Testing ArrayList class
-        internal static void TestNonGenericList()
+        /// <summary>
+        /// Testing ArrayList class.
+        /// </summary>
+        internal static void NonGenericList()
         {
             // ArrayList class requires casts.
             ArrayList al = new ArrayList();
@@ -276,6 +304,97 @@ namespace Collections
             list.ForEach(WriteSpaceVal);
         }
 
+        /// <summary>
+        /// Testing generic LinkedList class.
+        /// </summary>
+        internal static void GenericLinkedList()
+        {
+            LinkedList<string> tune = new LinkedList<string>();
+
+            tune.AddFirst("do");
+            tune.AddLast("so");
+            tune.AddAfter(tune.First, "re");
+            tune.AddAfter(tune.First.Next, "mi");
+            tune.AddBefore(tune.Last, "fa");
+            DisplayEnumerableCollection(tune);
+
+            tune.RemoveFirst();
+            tune.RemoveLast();
+            DisplayBar();
+            DisplayEnumerableCollection(tune);
+
+            LinkedListNode<string> miNode = tune.Find("mi");
+            tune.Remove(miNode);
+            DisplayBar();
+            DisplayEnumerableCollection(tune);
+
+            tune.AddFirst(miNode);
+        }
+
+        /// <summary>
+        /// Tests generic Queue class.
+        /// </summary>
+        internal static void GenericQueue()
+        {
+            Queue<int> q = new Queue<int>();
+
+            q.Enqueue(10);
+            q.Enqueue(20);
+
+            DisplayEnumerableCollection(q);
+
+            int[] data = q.ToArray();
+            DisplayBar();
+            DisplayEnumerableCollection(data);
+
+            DisplayBar();
+            Console.Write(q.Count);
+            DisplayBar();
+            Console.Write(q.Peek());
+            DisplayBar();
+            Console.Write(q.Dequeue());
+            DisplayBar();
+            Console.Write(q.Dequeue());
+        }
+
+        /// <summary>
+        /// Tests the generic Stack class.
+        /// </summary>
+        internal static void GenericStack()
+        {
+            Stack<int> s = new Stack<int>();
+
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+            DisplayEnumerableCollection(s);
+            DisplayBar();
+            Console.Write(s.Count);
+            DisplayBar();
+            Console.Write(s.Peek());
+            DisplayBar();
+            Console.Write(s.Pop());
+            DisplayBar();
+            Console.Write(s.Pop());
+            DisplayBar();
+            Console.Write(s.Pop());
+
+        }
+
+        /// <summary>
+        /// Displays the enumerable collection.
+        /// </summary>
+        /// <param name="ec">enumerable collection</param>
+        /// <typeparam name="T">type of the elements</typeparam>
+        static void DisplayEnumerableCollection<T>(IEnumerable<T> ec)
+        {
+            foreach (T item in ec)
+            {
+                WriteSpaceVal(item);
+            }
+        }
+
         static void WriteSpaceVal<T>(T val)
         {
             Console.Write(val + " ");
@@ -285,5 +404,6 @@ namespace Collections
         {
             Console.Write(" | ");
         }
+        
     }
 }
