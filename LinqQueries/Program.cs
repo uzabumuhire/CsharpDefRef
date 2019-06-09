@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,7 +35,7 @@ namespace LinqQueries
                 .Where(n => n.Length >= length);
 
             foreach (string fn in filteredNames)
-                Console.WriteLine(fn);
+                WriteLine(fn);
         }
 
         // Extracts and prints all names containing the given letter
@@ -50,7 +50,7 @@ namespace LinqQueries
                                                 select n;
 
             foreach (string fn in filteredNames)
-                Console.WriteLine(fn);
+                WriteLine(fn);
         }
 
         // Extracts all names containing the given letter, sorts them by their
@@ -89,7 +89,7 @@ namespace LinqQueries
                 select  n.ToUpper();    // Transform (project) each element    
 
             foreach (string fn in filteredNames)
-                Console.WriteLine(fn);
+                WriteLine(fn);
         }
     }
 }

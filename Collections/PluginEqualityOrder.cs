@@ -3,6 +3,8 @@ using System.Collections;
 using System.Globalization;
 using System.Collections.Generic;
 
+using static System.Console;
+
 namespace Collections
 {
     static class PluginEqualityOrder
@@ -16,23 +18,23 @@ namespace Collections
 
             // Because we've not overridden `object.Equals`, normal
             // reference type equality semantics apply.
-            Console.Write(c1 == c2);
-            Console.Write(" | ");           // False
-            Console.Write(c1.Equals(c2));       // False
+            Write(c1 == c2);
+            Write(" | ");           // False
+            Write(c1.Equals(c2));       // False
 
             // The same default semantics apply when using these customers
             // in a `Dictionary` without specifying an equality comparer.
             var d1 = new Dictionary<Customer, string>();
             d1[c1] = "Joe";
-            Console.Write(" | ");
-            Console.Write(d1.ContainsKey(c2));   // False
+            Write(" | ");
+            Write(d1.ContainsKey(c2));   // False
 
             // Specifying the custom equality comparer.
             var lfeq = new LastFirstEqualityComparer();
             var d2 = new Dictionary<Customer, string>(lfeq);
             d2[c1] = "Joe";
-            Console.Write(" | ");
-            Console.Write(d2.ContainsKey(c2)); // True
+            Write(" | ");
+            Write(d2.ContainsKey(c2)); // True
 
             // Be careful not to change the customer's `FirstName` or
             // `LastName` while it was in use in the dictionary. Otherwise,
@@ -52,7 +54,7 @@ namespace Collections
             wishList.Sort(new PriorityComparer());
 
             foreach (Wish w in wishList)
-                Console.Write(w.Name + " | ");
+                Write(w.Name + " | ");
         }
 
         // How a comparer is used in a `SortedDictionary` to sort
@@ -69,7 +71,7 @@ namespace Collections
             surnames.Add("McDonald", "first!");
 
             foreach (string v in surnames.Values)
-                Console.Write(v + " | ");
+                Write(v + " | ");
         }
 
         // How a StringComparer is used for ordinal case-insensitive.
@@ -87,7 +89,7 @@ namespace Collections
             Array.Sort<string>(names, StringComparer.Create(ci, false));
 
             foreach (string n in names)
-                Console.Write(n + " | ");
+                Write(n + " | ");
         }
 
         // Compare two arrays of integers for equality, first using 
@@ -99,9 +101,9 @@ namespace Collections
 
             IStructuralEquatable se1 = a1;
 
-            Console.Write(a1.Equals(a2));                                 // False
-            Console.Write(" | ");
-            Console.Write(se1.Equals(a2, EqualityComparer<int>.Default)); // True
+            Write(a1.Equals(a2));                                 // False
+            Write(" | ");
+            Write(se1.Equals(a2, EqualityComparer<int>.Default)); // True
         }
 
         // Compare two arrays of strings for equality, first using 
@@ -113,9 +115,9 @@ namespace Collections
 
             IStructuralEquatable se1 = a1;
 
-            Console.Write(a1.Equals(a2));                                               // False
-            Console.Write(" | ");
-            Console.Write(se1.Equals(a2, StringComparer.InvariantCultureIgnoreCase));   // True
+            Write(a1.Equals(a2));                                               // False
+            Write(" | ");
+            Write(se1.Equals(a2, StringComparer.InvariantCultureIgnoreCase));   // True
         }
     }
 

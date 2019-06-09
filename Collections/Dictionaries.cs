@@ -1,7 +1,7 @@
-﻿using System;
-using System.Reflection;
-using System.Collections;
+﻿using System.Reflection;
 using System.Collections.Generic;
+
+using static System.Console;
 
 namespace Collections
 {
@@ -21,28 +21,28 @@ namespace Collections
             d["Two"] = 22;  // updates dictionary, "Two" is now present
             d["Three"] = 3;
 
-            Console.WriteLine(d["Two"]);                // 22
-            Console.WriteLine(d.ContainsKey("One"));    // true (fast operation)
-            Console.WriteLine(d.ContainsValue(3));      // true (slow operation)
+            WriteLine(d["Two"]);                // 22
+            WriteLine(d.ContainsKey("One"));    // true (fast operation)
+            WriteLine(d.ContainsValue(3));      // true (slow operation)
 
             int val = 0;
             if (!d.TryGetValue("onE", out val))
-                Console.WriteLine("No val");            // No val (case sensitive)
+                WriteLine("No val");            // No val (case sensitive)
 
             // Three different ways to enumerate the dictionary
 
             foreach (KeyValuePair<string, int> kv in d)
-                Console.Write(kv.Key + "->" + kv.Value + " | ");
+                Write(kv.Key + "->" + kv.Value + " | ");
 
-            Console.WriteLine();
+            WriteLine();
 
             foreach (string k in d.Keys)
-                Console.Write(k + "->" + d[k] + " | ");
+                Write(k + "->" + d[k] + " | ");
 
-            Console.WriteLine();
+            WriteLine();
 
             foreach (var v in d.Values)
-                Console.Write(v + " | ");
+                Write(v + " | ");
         }
 
         // Uses reflection to load all the methods defined in `System.Object`
@@ -66,30 +66,30 @@ namespace Collections
                 // the indexer, the later entry overwrites the earlier 
                 // entry, preventing this exception. 
                 if (!sl.ContainsKey(m.Name))
-                    sl[m.Name] = new List<MethodInfo>(){ m };
+                    sl[m.Name] = new List<MethodInfo>() { m };
                 else
                     sl[m.Name].Add(m);
 
             // Enumeration of keys
             foreach (string name in sl.Keys)
-                Console.Write(name + " | ");
+                Write(name + " | ");
 
-            Console.WriteLine();
+            WriteLine();
 
             // Enumeration of values
             foreach (List<MethodInfo> l in sl.Values)
                 foreach (MethodInfo m in l)
-                    Console.WriteLine(m.Name + " returns a type of " + m.ReturnType);
+                    WriteLine(m.Name + " returns a type of " + m.ReturnType);
 
             // Retrieves the MethodInfo whose key is Equals and its aliases
             foreach (MethodInfo m in sl["Equals"])
-                Console.WriteLine(m);
+                WriteLine(m);
 
             // Everything we've done would also work with a `SortedDictionary<,>`.
             // The following lines, which retrieve the last key and value, works 
             // only with a `SortedList<,>`.
-            Console.WriteLine(sl.Keys[sl.Count - 1]);                   // ToString
-            Console.WriteLine((sl.Values[sl.Count - 1])[0].IsVirtual);  // True
+            WriteLine(sl.Keys[sl.Count - 1]);                   // ToString
+            WriteLine((sl.Values[sl.Count - 1])[0].IsVirtual);  // True
         }
     }
 

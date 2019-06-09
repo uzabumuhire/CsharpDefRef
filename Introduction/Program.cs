@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Introduction
 {
@@ -8,24 +8,24 @@ namespace Introduction
         {
             // C# 7 : numerical literals with digital separators.
             int million = 1_000_000;
-            Console.WriteLine(million);
+            WriteLine(million);
 
             // C# 7 : binary literals specified with 0b.
             var b = 0b1010_1011_1100_1101_1110_1111;
-            Console.WriteLine(b);
+            WriteLine(b);
 
             // C# 7 : declaring out variables on the fly.
             bool success = int.TryParse("123", out int result);
             if(success)
             {
-                Console.WriteLine(result);
+                WriteLine(result);
             }
 
             // C# 7 : when calling a method with out parameters,
             // you can discard ones you're unintrested in with
             // the underscore character (_).
             DiscardOutParameters(out _, out int y, out _);
-            Console.WriteLine(y);
+            WriteLine(y);
 
             // Pattern variables.
             SwitchStatementPatterns(true);
@@ -36,34 +36,34 @@ namespace Introduction
             // Deconstructors.
             var avery = new Person("Avery-Rose Isimbi Nefertiti Uzabumuhire");
             var (firstName, lastName) = avery; // Deconstruction
-            Console.WriteLine("Avery's first and middle names is " + firstName);
-            Console.WriteLine("Avery's last name is " + lastName);
+            WriteLine("Avery's first and middle names is " + firstName);
+            WriteLine("Avery's last name is " + lastName);
 
             // C# 7 has explicit tuple support. Tuples provide a simple way to 
             // store a set of related values.
             var bob = ("Bob", 23);
-            Console.WriteLine(bob.Item1);
-            Console.WriteLine(bob.Item2);
+            WriteLine(bob.Item1);
+            WriteLine(bob.Item2);
 
             // C# 7 new tuples are syntatic sugar for using the 
             // System.ValueTuple<...> generic structs. Tuples elements can
             // be named.
             var tuple = (Name: "Bob", Age: "23");
-            Console.WriteLine(tuple.Name);
-            Console.WriteLine(tuple.Age);
+            WriteLine(tuple.Name);
+            WriteLine(tuple.Age);
 
             var pos = GetFilePosition();
-            Console.WriteLine(pos.row);
-            Console.WriteLine(pos.column);
+            WriteLine(pos.row);
+            WriteLine(pos.column);
 
             // Tuples implicitly support the deconstruction pattern, so they
             // can easily be deconstructed into individual variables. 
             var (row, column) = GetFilePosition(); // creates 2 local variables
-            Console.WriteLine(row);
-            Console.WriteLine(column);
+            WriteLine(row);
+            WriteLine(column);
 
             // C# 7: `throw` expressions
-            Console.WriteLine(Capitalize("test"));
+            WriteLine(Capitalize("test"));
 
             // C# 6: null-conditional ('Elvis') operator avoids having to
             // explicitly check for null before calling a method or accessing
@@ -84,7 +84,7 @@ namespace Introduction
 
             // C# 6: string interpolation offers an alternative 
             // to `string.Format`
-            string s1 = $"It is {DateTime.Now.DayOfWeek}";
+            string s1 = $"It is {System.DateTime.Now.DayOfWeek}";
 
             // C# 6: exception filters let you apply a condition
             // let you a condition to a catch block.
@@ -97,6 +97,11 @@ namespace Introduction
             when (ex.Status == System.Net.WebExceptionStatus.Timeout)
             {
                 // Handle the error
+            }
+            catch (System.Exception ex)
+            {
+                // Handle the error
+                WriteLine(ex);
             }
         }
 
@@ -112,9 +117,9 @@ namespace Introduction
             // You can introduce variables on the fly with
             // the `is` operator. These are called pattern variables.
             if (x is string s)
-                Console.WriteLine(s.Length);
+                WriteLine(s.Length);
             else
-                Console.WriteLine("It's not a string");
+                WriteLine("It's not a string");
         }
 
         static void SwitchStatementPatterns (object x)
@@ -127,27 +132,27 @@ namespace Introduction
             {
                 case int i:
                     if (i >= 0)
-                        Console.WriteLine("It's an int");
+                        WriteLine("It's an int");
                     else
-                        Console.WriteLine("It's negative");
+                        WriteLine("It's negative");
                     break;
                 case string s:
                     // we can use the s variable
-                    Console.WriteLine(s.Length);
+                    WriteLine(s.Length);
                     break;
                 case bool b when b == true:
                     // matches only when b is true
-                    Console.WriteLine("True");
+                    WriteLine("True");
                     break;
                 case null:
-                    Console.WriteLine("Nothing");
+                    WriteLine("Nothing");
                     break;
             }
         }
 
         static void WriteCubes(int value)
         {
-            Console.WriteLine(Cube());
+            WriteLine(Cube());
 
             // A local method is method that can be declared inside
             // another method. Local methods are visible only to the
@@ -162,12 +167,12 @@ namespace Introduction
 
         // In C# 7, `throw` can also appear as an expression
         // in expression-bodied function.
-        static string ThrowExpression() => throw new NotImplementedException();
+        static string ThrowExpression() => throw new System.NotImplementedException();
 
         // A throw expression can also appear in a ternary conditional 
         // expression.
         static string Capitalize(string value) =>
-            value == null ? throw new ArgumentException("Capitalize(value)") :
+            value == null ? throw new System.ArgumentException("Capitalize(value)") :
             value == "" ? "" :
             char.ToUpper(value[0]) + value.Substring(1);
     }
@@ -180,21 +185,21 @@ namespace Introduction
         // and finalizers.
         string name;
 
-        public string Name
+        internal string Name
         {
             get => name;
             set => name = value ?? "";
         }
 
-        public Person(string name) => Name = name;
+        internal Person(string name) => Name = name;
 
-        ~Person() => Console.WriteLine("finalize");
+        ~Person() => WriteLine("finalize");
 
         // C# 7 introduced the deconstructor pattern. Whereas a constructor
         // typically takes a set of values (as parameters) and assigns them to
         // fields, a deconstructor dos the reverse and assigns fields back to
         // a set of variables.
-        public void Deconstruct(out string firstName, out string lastName)
+        internal void Deconstruct(out string firstName, out string lastName)
         {
             string[] names = name.Split(' ');
 
@@ -211,15 +216,15 @@ namespace Introduction
         // C# 6: expression-bodied functions allow methods, properties, 
         // operators, and indexers that comprise a single expression to be
         // written more tersely, in the style of lambda expression.
-        public  int TimesTwo(int x) => x * 2;
-        public string SomeProperty => "Property value";
+        internal int TimesTwo(int x) => x * 2;
+        internal string SomeProperty => "Property value";
 
         // C# 6: property intializers let you assign a value to an automatic
         // property.
-        public DateTime TimeCreated { get; set; } = DateTime.Now;
+        internal System.DateTime TimeCreated { get; set; } = System.DateTime.Now;
 
         // Initialized property can also be read-only.
-        public DateTime TimeCreatedReadOnly { get; } = DateTime.Now;
+        internal System.DateTime TimeCreatedReadOnly { get; } = System.DateTime.Now;
 
         // Read-only properties can be set in the constructor, making it easier
         // to create immutable (read-only) types.

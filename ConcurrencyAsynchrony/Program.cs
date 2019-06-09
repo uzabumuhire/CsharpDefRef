@@ -1,5 +1,6 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
+
+using static System.Console;
 
 namespace ConcurrencyAsynchrony
 {
@@ -18,13 +19,13 @@ namespace ConcurrencyAsynchrony
 
             // Simultaneously, do something on the main thread
             for (int i = 0; i < 1000; i++)
-                Console.Write("X");
+                Write("X");
         }
 
         static void WriteY()
         {
             for (int i = 0; i < 1000; i++)
-                Console.Write("y");
+                Write("y");
         }
 
         static void Write10()
@@ -37,9 +38,7 @@ namespace ConcurrencyAsynchrony
         {
             // Declare and use a local variable `cycles`
             for (int cylces = 0; cylces < 5; cylces++)
-                Console.Write("?");
+                Write("#");
         }
-
-
     }
 }

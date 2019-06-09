@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Collections
 {
@@ -7,79 +7,85 @@ namespace Collections
         static void Main(string[] args)
         {
             // ENUMERATION
-            Console.WriteLine("ENUMERATION");
-            Console.WriteLine();
+            WriteLine("ENUMERATION");
+            WriteLine();
             TestEnumeration();
 
             // PLUGGING IN EQUALITY AND ORDER
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("PLUGGING IN EQUALITY AND ORDER");
-            Console.WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine("PLUGGING IN EQUALITY AND ORDER");
+            WriteLine();
             TestPluginEqualityOrder();
 
             // DICTIONARIES
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("DICTIONARIES");
-            Console.WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine("DICTIONARIES");
+            WriteLine();
             TestDictionaries();
 
             // LISTS
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("LISTS");
-            Console.WriteLine();
+            WriteLine();
+            WriteLine();
+            WriteLine("LISTS");
+            WriteLine();
             TestLists();
 
+            // CUSTOMIZABLE COLLECTIONS & PROXIES
+            WriteLine();
+            WriteLine();
+            WriteLine("CUSTOMIZABLE COLLECTIONS & PROXIES");
+            WriteLine();
+            TestCustomizableProxies();
         }
 
         static void TestEnumeration()
         {
             // Enumeration for strings as characters of arrays
             Enumeration.EnumerateString1("1:Uzabumhire", " ");
-            Console.WriteLine();
+            WriteLine();
             Enumeration.EnumerateString2("2:Uzabumhire", " ");
 
-            Console.WriteLine();
+            WriteLine();
 
             // Enumeration for arrays 
             Enumeration.EnumerateArrays1<int>(new int[] { 26, 27, 28, 29, 30 });
-            Console.WriteLine();
+            WriteLine();
             Enumeration.EnumerateArrays2<int>(new int[] { 31, 32, 33, 34, 35 });
 
-            Console.WriteLine();
+            WriteLine();
 
             // Iterator for collections
             MyCollection c = new MyCollection();
             foreach (var item in c)
-                Console.Write(item + " ");
+                Write(item + " ");
 
-            Console.WriteLine();
+            WriteLine();
 
             // Iterator for generic collections
             MyGenericCollection gc = new MyGenericCollection();
             foreach (var item in gc)
-                Console.Write(item + " ");
+                Write(item + " ");
 
-            Console.WriteLine();
+            WriteLine();
 
             foreach (var item in Enumeration.IntegerGenerator())
-                Console.Write(item + " ");
+                Write(item + " ");
 
-            Console.WriteLine();
+            WriteLine();
 
             // Custom implementation of enumerator for collections
             MyIntList il = new MyIntList();
             foreach (var item in il)
-                Console.Write(item + " ");
+                Write(item + " ");
 
-            Console.WriteLine();
+            WriteLine();
 
             // Custom implementation of enumerator for generic collections
             MyGenericIntList gil = new MyGenericIntList();
             foreach (var item in gil)
-                Console.Write(item + " ");
+                Write(item + " ");
         }
 
         static void TestPluginEqualityOrder()
@@ -87,27 +93,27 @@ namespace Collections
             // Testing `EqualityComparer`
             PluginEqualityOrder.TestEqualityComparer();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing how a `Comparer` is used to sort a `List`
             PluginEqualityOrder.TestComparer1();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing how a `Comparer` is used in `SortedDictionary`
             PluginEqualityOrder.TestComparer2();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing how a `StringComparer` uses Autralian English.
             PluginEqualityOrder.TestStringComparer2();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `IStructuralEquatable` with arrays of integers
             PluginEqualityOrder.TestStructuralEquality1();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `IStructuralEquatable` with arrays of strings
             PluginEqualityOrder.TestStructuralEquality2();
@@ -115,87 +121,97 @@ namespace Collections
 
         static void TestDictionaries()
         {
-            // Testing how to use the `Dictionary<TKey, TValue>`
+            // Testing the `Dictionary<TKey, TValue>` class.
             Dictionaries.TestDictionary();
 
-            Console.WriteLine();
+            WriteLine();
 
-            // Testing how to use the `SortedList<Tkey, TValue>`
+            // Testing the `SortedList<Tkey, TValue>` class.
             Dictionaries.TestSortedList();
         }
 
-        static  void TestLists()
+        static void TestLists()
         {
             // Testing `Array` class
 
             // Tests accessing arrays via `IList` indexer.
             Lists.ArrayListIndexers();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays structural equality comparison.
             Lists.ArrayEqualityComparison();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays creation and indexing.
             Lists.ArrayConstructionIndexing();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays enumeration.
             Lists.ArrayEnumeration();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays searching.
             Lists.ArraySearch();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays sorting.
             Lists.ArraySort();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Tests arrays converting.
             Lists.ArrayConvert();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `List<T>` class.
             Lists.GenericList();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `ArrayList` class.
             Lists.NonGenericList();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `LinkedList<T>` class.
             Lists.GenericLinkedList();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `Queue<T>` class.
             Lists.GenericQueue();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `Stack<T` class.
             Lists.GenericStack();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `HashSet<T>`class.
             Lists.GenericHashSet();
 
-            Console.WriteLine();
+            WriteLine();
 
             // Testing `SortedSet<T>` class.
             Lists.GenericSortedSet();
+        }
 
+        static void TestCustomizableProxies()
+        {
+            // Testing use `Collection<T>` class.
+            CustomizableProxies.SimpleUseOfCollection();
+
+            WriteLine();
+
+            // Testing extenstion of `Collection<T>` class.
+            CustomizableProxies.ExtensionOfCollection();
         }
     }
 }

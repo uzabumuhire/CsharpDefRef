@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using static System.Console;
+
 namespace Collections
 {
     static class Enumeration
@@ -24,13 +26,13 @@ namespace Collections
         {
             var e = ((IEnumerable<T>)data).GetEnumerator();
             while (e.MoveNext())
-                Console.Write(e.Current + " ");
+                Write(e.Current + " ");
         }
 
         internal static void EnumerateArrays2<T>(T[] data)
         {
             foreach (T item in data)
-                Console.Write(item + " ");
+                Write(item + " ");
         }
 
         internal static void EnumerateString1(string s, string separator)
@@ -42,7 +44,7 @@ namespace Collections
             while (e.MoveNext())
             {
                 char c = (char)e.Current;
-                Console.Write(c + separator);
+                Write(c + separator);
             }
         }
 
@@ -52,7 +54,7 @@ namespace Collections
             // like in SplitString1, because C# provides a syntactic
             // shortcut: the `foreach` statement
             foreach (char c in s)
-                Console.Write(c + separator);
+                Write(c + separator);
         }
     }
 

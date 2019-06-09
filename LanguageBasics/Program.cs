@@ -1,4 +1,4 @@
-﻿using System; // Importing namespace
+﻿using static System.Console; 
 
 namespace Basics
 {
@@ -6,7 +6,7 @@ namespace Basics
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WriteLine("Hello World!");
         }
     }
 }

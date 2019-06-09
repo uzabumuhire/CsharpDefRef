@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Text;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+
+using static System.Console;
 
 
 namespace Collections
 {
     static class Lists
     {
-
         // Testing Array class
 
         /// <summary>
@@ -19,13 +19,13 @@ namespace Collections
         {
             object[] a1 = { "string", 123, true };
             FirstOrNull(a1);
-            Console.Write(FirstOrNull(a1));        // string
-            DisplayBar();
+            Write(FirstOrNull(a1));        // string
+            CollectionsHelpers.DisplayBar();
 
             object[][] a2 = {
                 new object[]{ "string", 123, true },
                 new object[]{ "string", 123, true } };
-            Console.Write(FirstOrNull(a2));        // null
+            Write(FirstOrNull(a2));        // null
         }
 
         /// <summary>
@@ -59,15 +59,15 @@ namespace Collections
 
             // Two distinct arrays will always fail an equality test - unless
             // you use a custom equality comparer.
-            Console.Write(a1 == a2);        // False
-            DisplayBar();
-            Console.Write(a1.Equals(a2));   // False
-            DisplayBar();
+            Write(a1 == a2);        // False
+            CollectionsHelpers.DisplayBar();
+            Write(a1.Equals(a2));   // False
+            CollectionsHelpers.DisplayBar();
 
             // Use of a custom equality comparer `StructuralComparisons`
             // to compare elements in an array.
             IStructuralEquatable se1 = a1;
-            Console.Write(se1.Equals(a2,
+            Write(se1.Equals(a2,
                 StructuralComparisons.StructuralEqualityComparer)); // True
         }
 
@@ -78,8 +78,8 @@ namespace Collections
         {
             // Create and index arrays through C#'s language constructs.
             int[] myArray = { 1, 2, 3 };
-            DisplayBar();
-            Console.Write(
+            CollectionsHelpers.DisplayBar();
+            Write(
                 "First element : {0} Last element {1}", myArray[0], myArray[1]);
 
             // Instantiate arrays dynamically by calling `Array.CreateInstance`
@@ -91,8 +91,8 @@ namespace Collections
             a.SetValue("hi", 0); // a[0] = "hi"
             a.SetValue("there", 1); // a[1] = "there"
             string s1 = (string)a.GetValue(0); // s = a[0]
-            DisplayBar();
-            Console.Write(s1);
+            CollectionsHelpers.DisplayBar();
+            Write(s1);
 
             // Casting to a C# array. Zero-indexed arrays created dynamically 
             // can be cast to a C# array of a matching or compatible type
@@ -116,15 +116,15 @@ namespace Collections
         /// <param name="a">The alpha component.</param>
         static void DisplayFirstValue(Array a)
         {
-            DisplayBar();
-            Console.Write(a.Rank + "-dimensional");
+            CollectionsHelpers.DisplayBar();
+            Write(a.Rank + "-dimensional");
 
             // The indexers array will automatically initialize to all zeros,
             // so passing it into `GetValue` or `SetValue` will get/set the
             // zero based (i.e, first) element int the array.
             int[] indexers = new int[a.Rank];
-            DisplayBar();
-            Console.Write(a.GetValue(indexers));
+            CollectionsHelpers.DisplayBar();
+            Write(a.GetValue(indexers));
         }
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace Collections
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         static void DisplayFirstValue<T>(T[] array)
         {
-            DisplayBar();
-            Console.Write(array[0]);
+            CollectionsHelpers.DisplayBar();
+            Write(array[0]);
         }
 
         /// <summary>
@@ -148,13 +148,13 @@ namespace Collections
             int[] myArray = { 1, 2, 3 };
             foreach (int val in myArray)
             {
-                Console.Write(" " + val);
+                Write(" " + val);
             }
 
             // Enumerate using a static 
             // Array.ForEach<T>(T[] array, Action<T> action).
             // public delagate static void Action<T>(T obj).
-            Array.ForEach(new[] { 1, 2, 3 }, WriteSpaceVal);
+            Array.ForEach(new[] { 1, 2, 3 }, CollectionsHelpers.WriteSpaceVal);
 
         }
 
@@ -167,7 +167,7 @@ namespace Collections
             //string match = Array.Find(names, delegate (string name) { return name.Contains("a"); }); // using an anonymous method.
             //string match = Array.Find(names, n => n.Contains("a")); // using a lambda expression.
             string match = Array.Find(names, ContainsA);
-            Console.Write(match);
+            Write(match);
         }
 
         static bool ContainsA(string name)
@@ -183,7 +183,7 @@ namespace Collections
             // Sorting a single array.
             int[] numbers1 = { 3, 2, 1 };
             Array.Sort(numbers1);
-            Array.ForEach(numbers1, WriteSpaceVal);
+            Array.ForEach(numbers1, CollectionsHelpers.WriteSpaceVal);
 
             // Sorting a pair of arrays.
             // The methods accepting a pair of arrays works by rearranging the
@@ -192,17 +192,17 @@ namespace Collections
             int[] numbers2 = { 7, 6, 5 };
             string[] words = { "seven", "six", "five" };
             Array.Sort(numbers2, words);
-            Array.ForEach(words, WriteSpaceVal);
+            Array.ForEach(words, CollectionsHelpers.WriteSpaceVal);
 
             // Sorting with a custom comparison provider (comparison delegate)
             // Sorting an array of integers such that odd numbers come first.
             int[] numbers3 = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            Array.ForEach(numbers3, WriteSpaceVal);
+            Array.ForEach(numbers3, CollectionsHelpers.WriteSpaceVal);
             Array.Sort(
                 numbers3,
                 (x, y) => x % 2 == y % 2 ? 0 : x % 2 == 1 ? -1 : 1
                 );
-            Array.ForEach(numbers3, WriteSpaceVal);
+            Array.ForEach(numbers3, CollectionsHelpers.WriteSpaceVal);
         }
 
         /// <summary>
@@ -211,12 +211,12 @@ namespace Collections
         internal static void ArrayConvert()
         {
             float[] reals = { 1.3f, 1.5f, 1.8f };
-            Array.ForEach(reals, WriteSpaceVal);
+            Array.ForEach(reals, CollectionsHelpers.WriteSpaceVal);
 
             // Converts an array of floats to an array of integers.
             int[] wholes = Array.ConvertAll(reals, r => Convert.ToInt32(r));
 
-            Array.ForEach(wholes, WriteSpaceVal);
+            Array.ForEach(wholes, CollectionsHelpers.WriteSpaceVal);
         }
 
         /// <summary>
@@ -229,25 +229,25 @@ namespace Collections
             words.Add("melon");
             words.Add("avocado");
             words.AddRange(new[] { "banana", "plum" });
-            words.ForEach(WriteSpaceVal);
+            words.ForEach(CollectionsHelpers.WriteSpaceVal);
 
             words.Insert(0, "lemon"); // Insert at start
             words.InsertRange(0, new[] { "peach", "nashi" }); // Insert at start
-            DisplayBar();
-            words.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            words.ForEach(CollectionsHelpers.WriteSpaceVal);
 
-            DisplayBar();
-            Console.Write(words[0]); // first element
-            DisplayBar();
-            Console.Write(words[words.Count - 1]); // last element
+            CollectionsHelpers.DisplayBar();
+            Write(words[0]); // first element
+            CollectionsHelpers.DisplayBar();
+            Write(words[words.Count - 1]); // last element
 
             List<string> subset = words.GetRange(1, 2); // 2nd -> 3rd words
-            DisplayBar();
-            subset.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            subset.ForEach(CollectionsHelpers.WriteSpaceVal);
 
             string[] wordsArray = words.ToArray(); // Creates a new typed array
-            DisplayBar();
-            Array.ForEach(wordsArray, WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            Array.ForEach(wordsArray, CollectionsHelpers.WriteSpaceVal);
 
             // Copy the first two elements to the end of an existing array.
             string[] existingArray = new string[1000];
@@ -255,24 +255,24 @@ namespace Collections
 
             // Converting to upper case.
             List<string> upperCaseWords = words.ConvertAll(s => s.ToUpper());
-            DisplayBar();
-            upperCaseWords.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            upperCaseWords.ForEach(CollectionsHelpers.WriteSpaceVal);
 
             // Converting to lengths.
             List<int> lengths = words.ConvertAll(s => s.Length);
-            DisplayBar();
-            lengths.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            lengths.ForEach(CollectionsHelpers.WriteSpaceVal);
 
             words.Remove("melon");
             words.RemoveAt(3);
             words.RemoveRange(0, 2); // Removes the first 2 elements
-            DisplayBar();
-            words.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            words.ForEach(CollectionsHelpers.WriteSpaceVal);
 
             // Remove all strings containing 'n'.
             words.RemoveAll(s => s.Contains("n"));
-            DisplayBar();
-            words.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            words.ForEach(CollectionsHelpers.WriteSpaceVal);
         }
 
         /// <summary>
@@ -285,11 +285,11 @@ namespace Collections
             al.Add("hello");
             al.Add("world");
             string first = (string)al[0];
-            Console.Write(first);
+            Write(first);
 
             string[] strArr = (string[])al.ToArray(typeof(string));
-            DisplayBar();
-            Array.ForEach(strArr, WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            Array.ForEach(strArr, CollectionsHelpers.WriteSpaceVal);
 
             // `ArrayList` casts cannot be verified by the compiler,
             // the following compiles but fails at runtime.
@@ -300,8 +300,8 @@ namespace Collections
             ArrayList numbers = new ArrayList();
             numbers.AddRange(new[] { 1, 5, 9 });
             List<int> list = numbers.Cast<int>().ToList();
-            DisplayBar();
-            list.ForEach(WriteSpaceVal);
+            CollectionsHelpers.DisplayBar();
+            list.ForEach(CollectionsHelpers.WriteSpaceVal);
         }
 
         /// <summary>
@@ -316,17 +316,17 @@ namespace Collections
             tune.AddAfter(tune.First, "re");
             tune.AddAfter(tune.First.Next, "mi");
             tune.AddBefore(tune.Last, "fa");
-            DisplayCollectionWithSpace(tune);
+            CollectionsHelpers.DisplayCollectionWithSpace(tune);
 
             tune.RemoveFirst();
             tune.RemoveLast();
-            DisplayBar();
-            DisplayCollectionWithSpace(tune);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithSpace(tune);
 
             LinkedListNode<string> miNode = tune.Find("mi");
             tune.Remove(miNode);
-            DisplayBar();
-            DisplayCollectionWithSpace(tune);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithSpace(tune);
 
             tune.AddFirst(miNode);
         }
@@ -341,20 +341,20 @@ namespace Collections
             q.Enqueue(10);
             q.Enqueue(20);
 
-            DisplayCollectionWithSpace(q);
+            CollectionsHelpers.DisplayCollectionWithSpace(q);
 
             int[] data = q.ToArray();
-            DisplayBar();
-            DisplayCollectionWithSpace(data);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithSpace(data);
 
-            DisplayBar();
-            Console.Write(q.Count);
-            DisplayBar();
-            Console.Write(q.Peek());
-            DisplayBar();
-            Console.Write(q.Dequeue());
-            DisplayBar();
-            Console.Write(q.Dequeue());
+            CollectionsHelpers.DisplayBar();
+            Write(q.Count);
+            CollectionsHelpers.DisplayBar();
+            Write(q.Peek());
+            CollectionsHelpers.DisplayBar();
+            Write(q.Dequeue());
+            CollectionsHelpers.DisplayBar();
+            Write(q.Dequeue());
         }
 
         /// <summary>
@@ -368,17 +368,17 @@ namespace Collections
             s.Push(2);
             s.Push(3);
 
-            DisplayCollectionWithSpace(s);
-            DisplayBar();
-            Console.Write(s.Count);
-            DisplayBar();
-            Console.Write(s.Peek());
-            DisplayBar();
-            Console.Write(s.Pop());
-            DisplayBar();
-            Console.Write(s.Pop());
-            DisplayBar();
-            Console.Write(s.Pop());
+            CollectionsHelpers.DisplayCollectionWithSpace(s);
+            CollectionsHelpers.DisplayBar();
+            Write(s.Count);
+            CollectionsHelpers.DisplayBar();
+            Write(s.Peek());
+            CollectionsHelpers.DisplayBar();
+            Write(s.Pop());
+            CollectionsHelpers.DisplayBar();
+            Write(s.Pop());
+            CollectionsHelpers.DisplayBar();
+            Write(s.Pop());
         }
 
         /// <summary>
@@ -392,32 +392,32 @@ namespace Collections
             HashSet<char> letters = new HashSet<char>("the quick brown fox");
 
             // Enumerate the collection (notice the abscence of duplicates).
-            DisplayCollectionWithoutSpace(letters);
+            CollectionsHelpers.DisplayCollectionWithoutSpace(letters);
 
             // Tests membership.
-            DisplayBar();
-            Console.Write(letters.Contains('t'));
-            DisplayBar();
-            Console.Write(letters.Contains('j'));
+            CollectionsHelpers.DisplayBar();
+            Write(letters.Contains('t'));
+            CollectionsHelpers.DisplayBar();
+            Write(letters.Contains('j'));
 
             // Extracts all the vowels from our set of characters.
             HashSet<char> lettersSet1 = new HashSet<char>(letters);
             lettersSet1.IntersectWith("aeiou");
-            DisplayBar();
-            DisplayCollectionWithoutSpace(lettersSet1);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithoutSpace(lettersSet1);
 
             // Strips all the vowels from the set.
             HashSet<char> lettersSet2 = new HashSet<char>(letters);
             lettersSet2.ExceptWith("aeiou");
-            DisplayBar();
-            DisplayCollectionWithoutSpace(lettersSet2);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithoutSpace(lettersSet2);
 
             // Removes all but the elements that are unique to one set or the
             // other. 
             HashSet<char> lettersSet3 = new HashSet<char>(letters);
             lettersSet3.SymmetricExceptWith("the lazy brown fox");
-            DisplayBar();
-            DisplayCollectionWithoutSpace(lettersSet3);
+            CollectionsHelpers.DisplayBar();
+            CollectionsHelpers.DisplayCollectionWithoutSpace(lettersSet3);
 
         }
 
@@ -427,70 +427,23 @@ namespace Collections
         internal static void GenericSortedSet()
         {
             SortedSet<char> letters = new SortedSet<char>("the quick brOwn fox");
-            DisplayCollectionWithoutSpace(letters);
+            CollectionsHelpers.DisplayCollectionWithoutSpace(letters);
 
-            DisplayBar();
+            CollectionsHelpers.DisplayBar();
 
             // Obtain letters between 'f' and 'j'.
             foreach (char c in letters.GetViewBetween('f', 'j'))
             {
-                Console.Write(c);
+                Write(c);
             }
 
-            DisplayBar();
+            CollectionsHelpers.DisplayBar();
 
             // Obtain only lower cases letters.
             foreach (char c in letters.GetViewBetween('a', 'z'))
             {
-                Console.Write(c);
-            }
-
-        }
-
-        /// <summary>
-        /// Displays elements of the enumerable collection with space.
-        /// </summary>
-        /// <param name="ec">enumerable collection</param>
-        /// <typeparam name="T">type of the elements</typeparam>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <see cref="System.Console"/>
-        static void DisplayCollectionWithSpace<T>(IEnumerable<T> ec)
-        {
-            foreach (T item in ec)
-            {
-                WriteSpaceVal(item);
+                Write(c);
             }
         }
-
-        /// <summary>
-        /// Displays elements of the enumerable collection without space.
-        /// </summary>
-        /// <param name="ec">enumerable collection</param>
-        /// <typeparam name="T">type of the elements</typeparam>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <see cref="System.Console"/>
-        static void DisplayCollectionWithoutSpace<T>(IEnumerable<T> ec)
-        {
-            foreach (T item in ec)
-            {
-                WriteVal(item, "");
-            }
-        }
-
-        static void WriteSpaceVal<T>(T val)
-        {
-            Console.Write(val + " ");
-        }
-
-        static void WriteVal<T>(T val, string separator)
-        {
-            Console.Write(val + separator);
-        }
-
-        static void DisplayBar()
-        {
-            Console.Write(" | ");
-        }
-        
     }
 }
