@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Advanced
 {
@@ -6,7 +6,11 @@ namespace Advanced
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Delegates.Basics.Demo.Test();
+
+            WriteLine();
+
+            Delegates.PlugInMethods.Demo.Test();
         }
     }
 }
