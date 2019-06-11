@@ -1,6 +1,8 @@
-﻿namespace Collections.CustomizableProxies.SimpleCollection
+﻿using static Core.Utility;
+
+namespace Collections.CustomizableProxies.SimpleCollection
 {
-    static class Test
+    static class Demo
     {
         // Tests typical skeleton use of `Collection<T>`.
         internal static void SimpleUsage()
@@ -10,7 +12,7 @@
             zoo.Animals.Add(new Animal("Mr Sea Lion", 20));
             foreach (Animal a in zoo.Animals)
             {
-                CollectionsHelpers.WriteSpaceVal(a.Name);
+                DisplaySpaceVal(a.Name);
             }
         }
     }

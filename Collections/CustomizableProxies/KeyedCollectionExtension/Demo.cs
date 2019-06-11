@@ -1,8 +1,11 @@
 ﻿using static System.Console;
 
+using static Core.Utility;
+
+
 namespace Collections.CustomizableProxies.KeyedCollectionExtension
 {
-    static class Test
+    static class Demo
     {
         internal static void CustomUsage()
         {
@@ -14,28 +17,28 @@ namespace Collections.CustomizableProxies.KeyedCollectionExtension
 
             foreach (Animal a in zoo.Animals)
             {
-                CollectionsHelpers.WriteVal(a.Name + " LIVES IN " + a.Zoo.Name, " | ");
+                DisplayVal(a.Name + " LIVES IN " + a.Zoo.Name, " | ");
             }
 
             Write(zoo.Animals[0].Popularity);
-            CollectionsHelpers.DisplayBar();
+            DisplayBar();
             Write(zoo.Animals["Mr Sea Lion"].Popularity);
-            CollectionsHelpers.DisplayBar();
+            DisplayBar();
 
             zoo.Animals["Kangaroo"].Name = "Mr Roo";
 
             foreach (Animal a in zoo.Animals)
             {
-                CollectionsHelpers.WriteVal(a.Name + " LIVES IN " + a.Zoo.Name, " | ");
+                DisplayVal(a.Name + " LIVES IN " + a.Zoo.Name, " | ");
             }
 
             Write(zoo.Animals["Mr Roo"].Popularity);
-            CollectionsHelpers.DisplayBar();
+            DisplayBar();
 
             zoo.Animals.Clear();
 
             Write(kangaroo.Name + " LIVES IN " + (kangaroo.Zoo?.Name ?? "nowhere"));
-            CollectionsHelpers.DisplayBar();
+            DisplayBar();
             Write(lion.Name + " LIVES IN " + (lion.Zoo?.Name ?? "nowhere"));
         }
     }

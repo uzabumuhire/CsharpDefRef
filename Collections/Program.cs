@@ -206,17 +206,27 @@ namespace Collections
         static void TestCustomizableProxies()
         {
             // Testing use `Collection<T>` class.
-            CustomizableProxies.SimpleCollection.Test.SimpleUsage();
+            CustomizableProxies.SimpleCollection.Demo.SimpleUsage();
 
             WriteLine();
 
             // Testing extension of `Collection<T>` class.
-            CustomizableProxies.CollectionExtension.Test.CustomUsage();
+            CustomizableProxies.CollectionExtension.Demo.CustomUsage();
 
             WriteLine();
 
             // Testing extension of `KeyedCollection<TKey, TItem>` class.
-            CustomizableProxies.KeyedCollectionExtension.Test.CustomUsage();
+            CustomizableProxies.KeyedCollectionExtension.Demo.CustomUsage();
+
+            WriteLine();
+
+            // Testing extension of `KeyedCollection < TKey, TItem >` class.
+            CustomizableProxies.SimpleOrder.Demo.Test();
+
+            WriteLine();
+
+            // Testing proxy via `ReadOnlyCollection<T>` class.
+            CustomizableProxies.ReadOnlyProxy.Demo.ReadOnlyView();
         }
     }
 }

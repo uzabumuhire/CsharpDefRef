@@ -10,5 +10,10 @@
     <Folder Include="CustomizableProxies\SimpleCollection\" />
     <Folder Include="CustomizableProxies\CollectionExtension\" />
     <Folder Include="CustomizableProxies\KeyedCollectionExtension\" />
+    <Folder Include="CustomizableProxies\SimpleOrder\" />
+    <Folder Include="CustomizableProxies\ReadOnlyProxy\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 </Project>
