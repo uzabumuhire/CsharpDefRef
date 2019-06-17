@@ -11,14 +11,28 @@ namespace Advanced
             // DELEGATES
             WriteLine("DELEGATES");
             WriteLine();
-            DelegatesDemo();
+            //DelegatesDemo();
 
             // EVENTS
             WriteLine();
             WriteLine();
             WriteLine("EVENTS");
             WriteLine();
-            EventsDemo();
+            //EventsDemo();
+
+            // LAMBDA EXPRESSIONS
+            WriteLine();
+            WriteLine();
+            WriteLine("LAMBDA EXPRESSIONS");
+            WriteLine();
+            LambdaExpressionsDemo();
+
+            // ANONYMOUS METHODS
+            WriteLine();
+            WriteLine();
+            WriteLine("ANONYMOUS METHODS");
+            WriteLine();
+            AnonymousMethodsDemo();
         }
 
         static void DelegatesDemo()
@@ -69,6 +83,20 @@ namespace Advanced
             WriteLine();
 
             Events.NonGenericHandler.Demo.Test();
+        }
+
+        static void LambdaExpressionsDemo()
+        {
+            LambdaExpressions.Basics.Demo.Test();
+
+            WriteLine();
+
+            LambdaExpressions.Capturing.Demo.Test();
+        }
+
+        static void AnonymousMethodsDemo()
+        {
+            AnonymousMethods.Basics.Demo.Test();
         }
     }
 }

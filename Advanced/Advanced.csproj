@@ -20,6 +20,11 @@
     <Folder Include="Events\StandardPattern\" />
     <Folder Include="Events\NonGenericHandler\" />
     <Folder Include="Events\Interfaces\" />
+    <Folder Include="LambdaExpressions\" />
+    <Folder Include="LambdaExpressions\Basics\" />
+    <Folder Include="LambdaExpressions\Capturing\" />
+    <Folder Include="AnonymousMethods\" />
+    <Folder Include="AnonymousMethods\Basics\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
