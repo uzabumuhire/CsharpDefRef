@@ -9,6 +9,17 @@
     <Folder Include="Delegates\" />
     <Folder Include="Delegates\Basics\" />
     <Folder Include="Delegates\PlugInMethods\" />
+    <Folder Include="Delegates\Multicasts\" />
+    <Folder Include="Delegates\InstanceMethodTarget\" />
+    <Folder Include="Delegates\GenericParameters\" />
+    <Folder Include="Delegates\FuncAction\" />
+    <Folder Include="Delegates\Interfaces\" />
+    <Folder Include="Delegates\Compatibility\" />
+    <Folder Include="Events\" />
+    <Folder Include="Events\Basics\" />
+    <Folder Include="Events\StandardPattern\" />
+    <Folder Include="Events\NonGenericHandler\" />
+    <Folder Include="Events\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

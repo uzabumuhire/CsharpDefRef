@@ -9,38 +9,38 @@ namespace Collections
             // ENUMERATION
             WriteLine("ENUMERATION");
             WriteLine();
-            TestEnumeration();
+            EnumerationDemo();
 
             // PLUGGING IN EQUALITY AND ORDER
             WriteLine();
             WriteLine();
             WriteLine("PLUGGING IN EQUALITY AND ORDER");
             WriteLine();
-            TestPluginEqualityOrder();
+            PluginEqualityOrderDemo();
 
             // DICTIONARIES
             WriteLine();
             WriteLine();
             WriteLine("DICTIONARIES");
             WriteLine();
-            TestDictionaries();
+            DictionariesDemo();
 
             // LISTS
             WriteLine();
             WriteLine();
             WriteLine("LISTS");
             WriteLine();
-            TestLists();
+            ListsDemo();
 
             // CUSTOMIZABLE COLLECTIONS & PROXIES
             WriteLine();
             WriteLine();
             WriteLine("CUSTOMIZABLE COLLECTIONS & PROXIES");
             WriteLine();
-            TestCustomizableProxies();
+            CustomizableProxiesDemo();
         }
 
-        static void TestEnumeration()
+        static void EnumerationDemo()
         {
             // Enumeration for strings as characters of arrays
             Enumeration.EnumerateString1("1:Uzabumhire", " ");
@@ -88,7 +88,7 @@ namespace Collections
                 Write(item + " ");
         }
 
-        static void TestPluginEqualityOrder()
+        static void PluginEqualityOrderDemo()
         {
             // Testing `EqualityComparer`
             PluginEqualityOrder.TestEqualityComparer();
@@ -119,7 +119,7 @@ namespace Collections
             PluginEqualityOrder.TestStructuralEquality2();
         }
 
-        static void TestDictionaries()
+        static void DictionariesDemo()
         {
             // Testing the `Dictionary<TKey, TValue>` class.
             Dictionaries.TestDictionary();
@@ -130,7 +130,7 @@ namespace Collections
             Dictionaries.TestSortedList();
         }
 
-        static void TestLists()
+        static void ListsDemo()
         {
             // Testing `Array` class
 
@@ -203,7 +203,7 @@ namespace Collections
             Lists.GenericSortedSet();
         }
 
-        static void TestCustomizableProxies()
+        static void CustomizableProxiesDemo()
         {
             // Testing use `Collection<T>` class.
             CustomizableProxies.SimpleCollection.Demo.SimpleUsage();

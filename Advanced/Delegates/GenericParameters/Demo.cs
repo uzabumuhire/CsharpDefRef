@@ -1,18 +1,18 @@
 ﻿using static Core.CollectionsHelpers;
 
-namespace Advanced.Delegates.PlugInMethods
+namespace Advanced.Delegates.GenericParameters
 {
-    static class Demo
+    public class Demo
     {
         /// <summary>
-        /// Demonstrates wrtiting plug-in methods with delegates.
+        /// Demonstrates wrtiting plug-in methods with generic delegates.
         /// </summary>
         internal static void Test()
         {
             int[] values = { 1, 2, 3 };
 
             // Hook in the Square method.
-            Transformers.ArrayTransform(values, Square); 
+            Transformers.ArrayTransform(values, Square);
 
             DisplayCollectionWithSpace(values);
         }

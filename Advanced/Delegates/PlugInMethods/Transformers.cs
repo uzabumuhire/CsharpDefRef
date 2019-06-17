@@ -1,5 +1,7 @@
 ﻿namespace Advanced.Delegates.PlugInMethods
 {
+    delegate int Transformer(int x);
+
     static class Transformers
     {
         /// <summary>
@@ -19,6 +21,4 @@
             }
         }
     }
-
-    delegate int Transformer(int x);
 }
