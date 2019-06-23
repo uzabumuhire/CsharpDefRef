@@ -25,14 +25,35 @@ namespace Advanced
             WriteLine();
             WriteLine("LAMBDA EXPRESSIONS");
             WriteLine();
-            LambdaExpressionsDemo();
+            //LambdaExpressionsDemo();
 
             // ANONYMOUS METHODS
             WriteLine();
             WriteLine();
             WriteLine("ANONYMOUS METHODS");
             WriteLine();
-            AnonymousMethodsDemo();
+            //AnonymousMethodsDemo();
+
+            // ENUMERATION AND ITERATORS
+            WriteLine();
+            WriteLine();
+            WriteLine("ENUMERATION AND ITERATORS");
+            WriteLine();
+            //EnumerationIteratorsDemo();
+
+            // NULLABLE TYPES
+            WriteLine();
+            WriteLine();
+            WriteLine("NULLABLE TYPES");
+            WriteLine();
+            //NullableTypesDemo();
+
+            // EXTENSION METHODS
+            WriteLine();
+            WriteLine();
+            WriteLine("EXTENSION METHODS");
+            WriteLine();
+            ExtensionMethodsDemo();
         }
 
         static void DelegatesDemo()
@@ -97,6 +118,29 @@ namespace Advanced
         static void AnonymousMethodsDemo()
         {
             AnonymousMethods.Basics.Demo.Test();
+        }
+
+        static void EnumerationIteratorsDemo()
+        {
+            EnumerationIterators.Enumeration.Demo.Test();
+
+            WriteLine();
+
+            EnumerationIterators.CollectionInitializers.Demo.Test();
+
+            WriteLine();
+
+            EnumerationIterators.Iterators.Demo.Test();
+        }
+
+        static void NullableTypesDemo()
+        {
+            NullableTypes.Basics.Demo.Test();
+        }
+
+        static void ExtensionMethodsDemo()
+        {
+            ExtensionMethods.Basics.Demo.Test();
         }
     }
 }
