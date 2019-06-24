@@ -33,6 +33,10 @@
     <Folder Include="NullableTypes\Basics\" />
     <Folder Include="ExtensionMethods\" />
     <Folder Include="ExtensionMethods\Basics\" />
+    <Folder Include="AnonymousTypes\" />
+    <Folder Include="AnonymousTypes\Basics\" />
+    <Folder Include="Tuples\" />
+    <Folder Include="Tuples\Basics\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

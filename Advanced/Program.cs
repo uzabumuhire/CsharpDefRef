@@ -53,7 +53,21 @@ namespace Advanced
             WriteLine();
             WriteLine("EXTENSION METHODS");
             WriteLine();
-            ExtensionMethodsDemo();
+            //ExtensionMethodsDemo();
+
+            // ANONYMOUS TYPES
+            WriteLine();
+            WriteLine();
+            WriteLine("ANONYMOUS TYPES");
+            WriteLine();
+            //AnonymousTypesDemo();
+
+            // TUPLES
+            WriteLine();
+            WriteLine();
+            WriteLine("TUPLES");
+            WriteLine();
+            TuplesDemo();
         }
 
         static void DelegatesDemo()
@@ -141,6 +155,16 @@ namespace Advanced
         static void ExtensionMethodsDemo()
         {
             ExtensionMethods.Basics.Demo.Test();
+        }
+
+        static void AnonymousTypesDemo()
+        {
+            AnonymousTypes.Basics.Demo.Test();
+        }
+
+        static void TuplesDemo()
+        {
+            Tuples.Basics.Demo.Test();
         }
     }
 }
