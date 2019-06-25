@@ -67,7 +67,14 @@ namespace Advanced
             WriteLine();
             WriteLine("TUPLES");
             WriteLine();
-            TuplesDemo();
+            //TuplesDemo();
+
+            // ATTRIBUTES
+            WriteLine();
+            WriteLine();
+            WriteLine("ATTRIBUTES");
+            WriteLine();
+            AttributesDemo();
         }
 
         static void DelegatesDemo()
@@ -165,6 +172,15 @@ namespace Advanced
         static void TuplesDemo()
         {
             Tuples.Basics.Demo.Test();
+        }
+
+        static void AttributesDemo()
+        {
+            Attributes.Basics.Demo.Test();
+
+            WriteLine();
+
+            Attributes.PropertyChangedPattern.Demo.Test();
         }
     }
 }

@@ -37,6 +37,9 @@
     <Folder Include="AnonymousTypes\Basics\" />
     <Folder Include="Tuples\" />
     <Folder Include="Tuples\Basics\" />
+    <Folder Include="Attributes\" />
+    <Folder Include="Attributes\Basics\" />
+    <Folder Include="Attributes\PropertyChangedPattern\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
