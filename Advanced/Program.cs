@@ -74,14 +74,21 @@ namespace Advanced
             WriteLine();
             WriteLine("ATTRIBUTES");
             WriteLine();
-            AttributesDemo();
+            //AttributesDemo();
 
             // DYNAMIC BINDING
             WriteLine();
             WriteLine();
             WriteLine("DYNAMIC BINDING");
             WriteLine();
-            DynamicBindingDemo();
+            //DynamicBindingDemo();
+
+            // OPERATOR OVERLOADING
+            WriteLine();
+            WriteLine();
+            WriteLine("OPERATOR OVERLOADING");
+            WriteLine();
+            OperatorOverloadingDemo();
         }
 
         static void DelegatesDemo()
@@ -193,6 +200,11 @@ namespace Advanced
         static void DynamicBindingDemo()
         {
             DynamicBinding.Basics.Demo.Test();
+        }
+
+        static void OperatorOverloadingDemo()
+        {
+            OperatorOverloading.Basics.Demo.Test();
         }
     }
 }

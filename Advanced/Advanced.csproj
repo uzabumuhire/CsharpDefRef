@@ -42,6 +42,8 @@
     <Folder Include="Attributes\PropertyChangedPattern\" />
     <Folder Include="DynamicBinding\" />
     <Folder Include="DynamicBinding\Basics\" />
+    <Folder Include="OperatorOverloading\" />
+    <Folder Include="OperatorOverloading\Basics\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
