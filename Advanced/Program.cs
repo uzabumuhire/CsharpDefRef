@@ -75,6 +75,13 @@ namespace Advanced
             WriteLine("ATTRIBUTES");
             WriteLine();
             AttributesDemo();
+
+            // DYNAMIC BINDING
+            WriteLine();
+            WriteLine();
+            WriteLine("DYNAMIC BINDING");
+            WriteLine();
+            DynamicBindingDemo();
         }
 
         static void DelegatesDemo()
@@ -181,6 +188,11 @@ namespace Advanced
             WriteLine();
 
             Attributes.PropertyChangedPattern.Demo.Test();
+        }
+
+        static void DynamicBindingDemo()
+        {
+            DynamicBinding.Basics.Demo.Test();
         }
     }
 }

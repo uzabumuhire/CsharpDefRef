@@ -40,6 +40,11 @@ namespace Core
             DisplayFormatedMessage("alert", message, Green, White, Green);
         }
 
+        public static void DisplayError(string message)
+        {
+            DisplayFormatedMessage("error", message, Red, White, Red);
+        }
+
         public static void DisplayFormatedMessage(
             string messageType,
             string message, 
@@ -67,7 +72,7 @@ namespace Core
 
             ForegroundColor = messageColor;
             m.Append(' ');
-            m.Append(message.Trim().ToLower());
+            m.Append(message.Trim());
             WriteLine(m);
 
             ResetColor();

@@ -40,6 +40,8 @@
     <Folder Include="Attributes\" />
     <Folder Include="Attributes\Basics\" />
     <Folder Include="Attributes\PropertyChangedPattern\" />
+    <Folder Include="DynamicBinding\" />
+    <Folder Include="DynamicBinding\Basics\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
