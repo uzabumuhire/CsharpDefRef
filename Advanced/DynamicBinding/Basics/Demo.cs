@@ -4,7 +4,7 @@ using Microsoft.CSharp.RuntimeBinder;
 
 using static System.Console;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.DynamicBinding.Basics
 {
@@ -100,7 +100,7 @@ namespace Advanced.DynamicBinding.Basics
             {
                 DisplayError(ex.ToString());
             }
-           
+
             //int t = q; // compile-time error (cannot convert string to int)
 
             // The static type of a variable declared with `var` can be `dynamic`.
@@ -206,7 +206,7 @@ namespace Advanced.DynamicBinding.Basics
             }
 
             DisplaySpaceVal(iuf.GetType().ToString());
-            
+
         }
 
         static dynamic Mean(dynamic x, dynamic y) => (x + y) / 2;

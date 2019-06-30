@@ -1,6 +1,6 @@
 ﻿using System;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.Tuples.Basics
 {
@@ -10,7 +10,7 @@ namespace Advanced.Tuples.Basics
         {
             // The simplest way to create a tuple literal
             // is to list the desired values in parentheses.
-            
+
             // Allow the compiler to infer the element types.
             var bob = ("Bob", 23);
 

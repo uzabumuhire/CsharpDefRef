@@ -1,4 +1,4 @@
-﻿using static Core.Utility;
+﻿using static Core.ConsoleHelper;
 
 namespace Collections.CustomizableProxies.SimpleCollection
 {

@@ -1,6 +1,6 @@
 ﻿using static System.Console;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced
 {
@@ -88,7 +88,14 @@ namespace Advanced
             WriteLine();
             WriteLine("OPERATOR OVERLOADING");
             WriteLine();
-            OperatorOverloadingDemo();
+            //OperatorOverloadingDemo();
+
+            // UNSAFE CODE AND POINTERS
+            WriteLine();
+            WriteLine();
+            WriteLine("UNSAFE CODE AND POINTERS");
+            WriteLine();
+            UnsafeCodePointersDemo();
         }
 
         static void DelegatesDemo()
@@ -205,6 +212,11 @@ namespace Advanced
         static void OperatorOverloadingDemo()
         {
             OperatorOverloading.Basics.Demo.Test();
+        }
+
+        static void UnsafeCodePointersDemo()
+        {
+            UnsafeCodePointers.Basics.Demo.Test();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using static Core.CollectionsHelpers;
+﻿using static Core.CollectionsHelper;
 
 namespace Advanced.Delegates.PlugInMethods
 {

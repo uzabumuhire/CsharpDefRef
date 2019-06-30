@@ -3,7 +3,7 @@ using static System.ConsoleColor;
 
 namespace Core
 {
-    public static class Utility
+    public static class ConsoleHelper
     {
         public static void DisplaySpaceVal<T>(T val)
         {

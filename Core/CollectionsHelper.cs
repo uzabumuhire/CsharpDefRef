@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Core
 {
-    public static class CollectionsHelpers
+    public static class CollectionsHelper
     {
         /// <summary>
         /// Displays elements of the enumerable collection with space.

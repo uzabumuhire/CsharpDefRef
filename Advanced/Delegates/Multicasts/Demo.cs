@@ -1,4 +1,7 @@
-﻿using static System.Console;
+﻿using System.IO;
+
+using static System.Console;
+
 namespace Advanced.Delegates.Multicasts
 {
     static class Demo
@@ -23,7 +26,7 @@ namespace Advanced.Delegates.Multicasts
         /// Writes the progress to console.
         /// </summary>
         /// <param name="percentComplete">The percentage of completed work.</param>
-        static void WriteProgressToConsole(int percentComplete, System.IO.TextWriter writer = null) 
+        static void WriteProgressToConsole(int percentComplete, TextWriter writer = null) 
         {
             Write(string.Format("Progress... {0, 5} %", percentComplete));
             CursorLeft -= 19;
@@ -33,7 +36,7 @@ namespace Advanced.Delegates.Multicasts
         /// Writes the progress to file.
         /// </summary>
         /// <param name="percentComplete">The percentage of completed work.</param>
-        static void WriteProgressToFile(int percentComplete, System.IO.TextWriter writer)
+        static void WriteProgressToFile(int percentComplete, TextWriter writer)
         {
             writer.WriteLine(string.Format("Progress... {0, 5} %", percentComplete));
         }

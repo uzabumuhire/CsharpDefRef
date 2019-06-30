@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.EnumerationIterators.Iterators
 {

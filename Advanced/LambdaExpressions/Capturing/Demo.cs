@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.LambdaExpressions.Capturing
 {
@@ -81,7 +81,7 @@ namespace Advanced.LambdaExpressions.Capturing
                 a();
 
             DisplayBar();
-            
+
             // The solution is to assign the iteration variable to 
             // a local variable that's scoped inside the loop.
             Action[] myActions = new Action[3];

@@ -1,6 +1,6 @@
 ﻿using System;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.Events.NonGenericHandler
 {

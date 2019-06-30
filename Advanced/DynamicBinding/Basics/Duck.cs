@@ -1,6 +1,6 @@
 ﻿using System.Dynamic;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.DynamicBinding.Basics
 {

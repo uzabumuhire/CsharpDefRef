@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.Attributes.PropertyChangedPattern
 {

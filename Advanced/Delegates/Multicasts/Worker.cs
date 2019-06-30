@@ -1,9 +1,14 @@
-﻿namespace Advanced.Delegates.Multicasts
+﻿using System.IO;
+using System.Threading;
+
+using static Core.FileHelper;
+
+namespace Advanced.Delegates.Multicasts
 {
     /// <summary>
     /// Reports the progress of the work that have been done.
     /// </summary>
-    delegate void ProgressRepoter(int percentComplete, System.IO.TextWriter writer);
+    delegate void ProgressRepoter(int percentComplete, TextWriter writer);
 
     static class Worker
     {
@@ -18,12 +23,10 @@
         internal static void HardWork(ProgressRepoter p)
         {
             // The full directory of the progresss report.
-            string path = System.IO.Path.Combine(
-                System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName,
-                "progress-report.txt");
+            string path = CreateFullPath("Delegates/Multicasts/Reports/progress-report.txt");
 
-            using (System.IO.FileStream fs = System.IO.File.Create(path))
-            using (System.IO.TextWriter writer = new System.IO.StreamWriter(fs))
+            using (FileStream fs = File.Create(path))
+            using (TextWriter writer = new StreamWriter(fs))
             {
                 for (int i = 1; i < 101; i++)
                 {
@@ -32,7 +35,7 @@
                     p(i, writer);
 
                     // Simulate hard work.
-                    System.Threading.Thread.Sleep(100);
+                    Thread.Sleep(100);
                 }
             }
         }

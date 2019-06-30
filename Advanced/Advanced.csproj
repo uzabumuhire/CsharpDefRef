@@ -5,6 +5,12 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Folder Include="Delegates\" />
     <Folder Include="Delegates\Basics\" />
@@ -44,8 +50,15 @@
     <Folder Include="DynamicBinding\Basics\" />
     <Folder Include="OperatorOverloading\" />
     <Folder Include="OperatorOverloading\Basics\" />
+    <Folder Include="UnsafeCodePointers\" />
+    <Folder Include="UnsafeCodePointers\Basics\" />
+    <Folder Include="UnsafeCodePointers\Basics\Images\" />
+    <Folder Include="Delegates\Multicasts\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
 </Project>

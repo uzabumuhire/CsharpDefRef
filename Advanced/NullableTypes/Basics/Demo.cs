@@ -2,7 +2,7 @@
 
 using static System.Console;
 
-using static Core.Utility;
+using static Core.ConsoleHelper;
 
 namespace Advanced.NullableTypes.Basics
 {

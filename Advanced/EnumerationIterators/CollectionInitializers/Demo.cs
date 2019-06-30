@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
-using static Core.Utility;
-using static Core.CollectionsHelpers;
+using static Core.ConsoleHelper;
+using static Core.CollectionsHelper;
 
 namespace Advanced.EnumerationIterators.CollectionInitializers
 {
