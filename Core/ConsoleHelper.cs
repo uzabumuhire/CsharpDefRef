@@ -32,7 +32,7 @@ namespace Core
 
         public static void DisplayInfo(string message)
         {
-            DisplayFormatedMessage("info", message, Magenta, White, Magenta);
+            DisplayFormatedMessage("info", message, Blue, White, Cyan);
         }
 
         public static void DisplayAlert(string message)
@@ -45,7 +45,12 @@ namespace Core
             DisplayFormatedMessage("error", message, Red, White, Red);
         }
 
-        public static void DisplayFormatedMessage(
+        public static void DisplayThreadInfo(string message)
+        {
+            DisplayFormatedMessage("thread info", message, DarkCyan, White, DarkCyan);
+        }
+
+        static void DisplayFormatedMessage(
             string messageType,
             string message, 
             System.ConsoleColor titleBackgroundColor,

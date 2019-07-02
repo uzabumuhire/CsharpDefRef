@@ -11,84 +11,84 @@ namespace Advanced
             // DELEGATES
             WriteLine("DELEGATES");
             WriteLine();
-            //DelegatesDemo();
+            DelegatesDemo();
 
             // EVENTS
             WriteLine();
             WriteLine();
             WriteLine("EVENTS");
             WriteLine();
-            //EventsDemo();
+            EventsDemo();
 
             // LAMBDA EXPRESSIONS
             WriteLine();
             WriteLine();
             WriteLine("LAMBDA EXPRESSIONS");
             WriteLine();
-            //LambdaExpressionsDemo();
+            LambdaExpressionsDemo();
 
             // ANONYMOUS METHODS
             WriteLine();
             WriteLine();
             WriteLine("ANONYMOUS METHODS");
             WriteLine();
-            //AnonymousMethodsDemo();
+            AnonymousMethodsDemo();
 
             // ENUMERATION AND ITERATORS
             WriteLine();
             WriteLine();
             WriteLine("ENUMERATION AND ITERATORS");
             WriteLine();
-            //EnumerationIteratorsDemo();
+            EnumerationIteratorsDemo();
 
             // NULLABLE TYPES
             WriteLine();
             WriteLine();
             WriteLine("NULLABLE TYPES");
             WriteLine();
-            //NullableTypesDemo();
+            NullableTypesDemo();
 
             // EXTENSION METHODS
             WriteLine();
             WriteLine();
             WriteLine("EXTENSION METHODS");
             WriteLine();
-            //ExtensionMethodsDemo();
+            ExtensionMethodsDemo();
 
             // ANONYMOUS TYPES
             WriteLine();
             WriteLine();
             WriteLine("ANONYMOUS TYPES");
             WriteLine();
-            //AnonymousTypesDemo();
+            AnonymousTypesDemo();
 
             // TUPLES
             WriteLine();
             WriteLine();
             WriteLine("TUPLES");
             WriteLine();
-            //TuplesDemo();
+            TuplesDemo();
 
             // ATTRIBUTES
             WriteLine();
             WriteLine();
             WriteLine("ATTRIBUTES");
             WriteLine();
-            //AttributesDemo();
+            AttributesDemo();
 
             // DYNAMIC BINDING
             WriteLine();
             WriteLine();
             WriteLine("DYNAMIC BINDING");
             WriteLine();
-            //DynamicBindingDemo();
+            DynamicBindingDemo();
 
             // OPERATOR OVERLOADING
             WriteLine();
             WriteLine();
             WriteLine("OPERATOR OVERLOADING");
             WriteLine();
-            //OperatorOverloadingDemo();
+            OperatorOverloadingDemo();
 
             // UNSAFE CODE AND POINTERS
             WriteLine();
