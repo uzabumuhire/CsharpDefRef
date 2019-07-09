@@ -11,6 +11,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
         
         bool _done;
 
+        /// <summary>
+        /// Demonstrates how threads share a common reference
+        /// to the same object instance.
+        /// </summary>
         internal void SharedState()
         {
             // Threads share data if they have a common reference

@@ -11,6 +11,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
         static bool _done;
         static readonly object _locker = new object();
 
+        /// <summary>
+        /// Demonstrates thread safety via a <c>lock</c>
+        /// lock statement.
+        /// </summary>
         internal void SharedState()
         {
             // Static fields are shared between all threads

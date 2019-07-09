@@ -9,12 +9,20 @@ using static Core.ConsoleHelper;
 
 namespace ConcurrencyAsynchrony.Threading.Basics
 {
+    /// <summary>
+    /// Demonstrates basic usage of threads.
+    /// </summary>
     static class Demo
     {
+        /// <summary>
+        /// Tests basic usage of threads.
+        /// </summary>
         internal static void Test()
         {
-            /*CreateThread();
+            CreateThread();
+
             WaitForThread();
+
             LocalState();
             
             SharedCommonInstance sci = new SharedCommonInstance();
@@ -37,11 +45,14 @@ namespace ConcurrencyAsynchrony.Threading.Basics
 
             //UnhandledExceptionThread(); // not handled exception shutdown the whole application
 
-            ThreadSignaling();*/
+            ThreadSignaling();
 
             ThreadPooling();
         }
 
+        /// <summary>
+        /// Demonstrates how to creates threads.
+        /// </summary>
         static void CreateThread()
         {
             // You can create and start a new thread by
@@ -71,6 +82,9 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             DisplayCurrentThreadInfo("Exiting");
         }
 
+        /// <summary>
+        /// Demonstrates how to wait for a thread.
+        /// </summary>
         static void WaitForThread()
         {
             // You can wait for another thread to end by
@@ -91,6 +105,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             DisplayCurrentThreadInfo("Exiting");
         }
 
+        /// <summary>
+        /// Demonstrates how each thread has its own memory stack
+        /// and how local variables are kept seperate.
+        /// </summary>
         static void LocalState()
         {
             // The CLR assigns each thread its own memory stack
@@ -113,6 +131,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             DisplayCurrentThreadInfo("Exiting");
         }
 
+        /// <summary>
+        /// Demonstrates how to pass data to thread with lambda
+        /// expressions and also via a thread's <c>Start</c> method.
+        /// </summary>
         static void PassingDataToThread()
         {
             // The easiest way to pass arguments to the thread's startup
@@ -167,6 +189,11 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             DisplayCurrentThreadInfo("Exiting");
         }
 
+        /// <summary>
+        /// Demonstrates how captured variables by a lambda expression
+        /// can make your output nondeterministic and how to solve the
+        /// issue with a temporary variable.
+        /// </summary>
         static void PassingCapturedVariables()
         {
             for (int i = 0; i < 10; i++)
@@ -204,6 +231,9 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             }
         }
 
+        /// <summary>
+        /// Demonstrates the danger of unhandled exceptions in threads.
+        /// </summary>
         static void UnhandledExceptionThread()
         {
             // Any try/catch/finally blocks in effect when a thread is created
@@ -238,6 +268,9 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             //DisplayCurrentThreadInfo("Exiting"); // Unreachable
         }
 
+        /// <summary>
+        /// Demonstrates how to handle exceptions with threads.
+        /// </summary>
         static void HandledExceptionThread()
         {
             // Exception handling logic has been moved to
@@ -270,6 +303,9 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             DisplayCurrentThreadInfo("Exiting");
         }
 
+        /// <summary>
+        /// Demonstrates how to signal a thread.
+        /// </summary>
         static void ThreadSignaling()
         {
             // Sometimes you need a thread to wait until receiving notification(s)
@@ -299,6 +335,9 @@ namespace ConcurrencyAsynchrony.Threading.Basics
             signal.Set(); // open the signal to unblock thread t
         }
 
+        /// <summary>
+        /// Demonstrates thread pooling.
+        /// </summary>
         static void ThreadPooling()
         {
             // Whenever you start a thread, a few hundred microseconds

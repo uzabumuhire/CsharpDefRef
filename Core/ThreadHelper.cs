@@ -6,9 +6,9 @@ namespace Core
 {
     public static class ThreadHelper
     {
-        public static void DisplayCurrentThreadInfo(string m)
+        public static void DisplayCurrentThreadInfo(string message)
         {
-            DisplayThreadInfo(m + " " + Thread.CurrentThread.Name);
+            DisplayThreadInfo(message + " " + Thread.CurrentThread.Name);
         }
     }
 }

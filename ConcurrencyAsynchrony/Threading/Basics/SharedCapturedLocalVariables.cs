@@ -8,6 +8,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
 {
     class SharedCapturedLocalVariables
     {
+        /// <summary>
+        /// Demonstrates how local variables are captured
+        /// by a lambda expression and become a shared state.
+        /// </summary>
         internal void SharedState()
         {
             // Local variables captured by a lambda expression

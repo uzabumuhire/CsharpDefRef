@@ -50,6 +50,18 @@ namespace Core
             DisplayFormatedMessage("thread info", message, DarkCyan, White, DarkCyan);
         }
 
+        public static void DisplayTaskInfo(string message)
+        {
+            DisplayFormatedMessage("task info", message, DarkCyan, White, DarkCyan);
+        }
+
+        public static void DisplayMethodInfo(string message)
+        {
+            DisplayFormatedMessage("method info", message, DarkCyan, White, DarkCyan);
+        }
+
+        
+
         static void DisplayFormatedMessage(
             string messageType,
             string message, 

@@ -6,8 +6,15 @@ using static Core.ThreadHelper;
 
 namespace ConcurrencyAsynchrony
 {
+    /// <summary>
+    /// Demonstrates usage of concurrency and asynchrony.
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Tests usage of concurrency and ansychrony.
+        /// </summary>
+        /// <param name="args">Program arguments.</param>
         static void Main(string[] args)
         {
             Thread.CurrentThread.Name = "MAIN";
@@ -17,14 +24,14 @@ namespace ConcurrencyAsynchrony
             // THREADING
             WriteLine("THREADING");
             WriteLine();
-            ThreadingDemo();
+            //ThreadingDemo();
 
             // TASKS
             WriteLine();
             WriteLine();
             WriteLine("TASKS");
             WriteLine();
-            TasksDemo();
+            //TasksDemo();
 
             // ASYNCHRONOUS PROGRAMMING
             WriteLine();
@@ -33,25 +40,45 @@ namespace ConcurrencyAsynchrony
             WriteLine();
             AsynchronousProgrammingDemo();
 
+            // Since tasks use pooled threads by default,
+            // which are backgroung  threads. This means
+            // that when the main thread ends, so do any
+            // tasks that you create. In a Console app,
+            // you must block the main thread after
+            // starting a task (by waiting the task or
+            // by calling `Console.ReadLine`).
+            ReadLine();
+
             DisplayCurrentThreadInfo("Exiting");
 
         }
 
+        /// <summary>
+        /// Demonstrates usage of threads.
+        /// </summary>
         static void ThreadingDemo()
         {
             Threading.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of tasks.
+        /// </summary>
         static void TasksDemo()
         {
+            Tasks.Basics.Demo.Test();
 
+            WriteLine();
+
+            Tasks.TCS.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of ansychronous programming.
+        /// </summary>
         static void AsynchronousProgrammingDemo()
         {
-
+            AsynchronousProgramming.Basics.Demo.Test();
         }
     }
-
-    
 }

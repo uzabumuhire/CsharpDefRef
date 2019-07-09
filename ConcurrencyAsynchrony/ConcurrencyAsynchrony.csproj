@@ -8,6 +8,14 @@
   <ItemGroup>
     <Folder Include="Threading\" />
     <Folder Include="Threading\Basics\" />
+    <Folder Include="Tasks\" />
+    <Folder Include="Tasks\Basics\" />
+    <Folder Include="Tasks\TCS\" />
+    <Folder Include="AsynchronousProgramming\" />
+    <Folder Include="AsynchronousProgramming\Basics\" />
+    <Folder Include="AsynchronousProgramming\Functions\" />
+    <Folder Include="AsynchronousProgramming\Patterns\" />
+    <Folder Include="AsynchronousProgramming\ObsoletePatterns\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

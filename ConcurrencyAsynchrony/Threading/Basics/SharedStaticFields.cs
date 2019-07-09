@@ -10,6 +10,10 @@ namespace ConcurrencyAsynchrony.Threading.Basics
     {
         static bool _done;
 
+        /// <summary>
+        /// Demonstrates how threads in the same application domain
+        /// share static fields.
+        /// </summary>
         internal void SharedState()
         {
             // Static fields are shared between all threads
