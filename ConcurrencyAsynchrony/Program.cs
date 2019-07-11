@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 
 using static System.Console;
 
@@ -38,7 +39,7 @@ namespace ConcurrencyAsynchrony
             WriteLine();
             WriteLine("ASYNCHRONOUS PROGRAMMING");
             WriteLine();
-            AsynchronousProgrammingDemo();
+            _ = AsynchronousProgrammingDemoAsync();
 
             // Since tasks use pooled threads by default,
             // which are backgroung  threads. This means
@@ -67,7 +68,6 @@ namespace ConcurrencyAsynchrony
         static void TasksDemo()
         {
             Tasks.Basics.Demo.Test();
-
             WriteLine();
 
             Tasks.TCS.Demo.Test();
@@ -76,9 +76,12 @@ namespace ConcurrencyAsynchrony
         /// <summary>
         /// Demonstrates usage of ansychronous programming.
         /// </summary>
-        static void AsynchronousProgrammingDemo()
+        static async Task AsynchronousProgrammingDemoAsync()
         {
-            AsynchronousProgramming.Basics.Demo.Test();
+            //await AsynchronousProgramming.Basics.Demo.TestAsync();
+            //WriteLine();
+
+            await AsynchronousProgramming.Functions.Demo.TestAsync();
         }
     }
 }

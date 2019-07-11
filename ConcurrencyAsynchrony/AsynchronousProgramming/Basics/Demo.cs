@@ -11,7 +11,10 @@ namespace ConcurrencyAsynchrony.AsynchronousProgramming.Basics
 {
     static class Demo
     {
-        internal static void Test()
+        /// <summary>
+        /// Demonstrates basic usage of asynchronous programming.
+        /// </summary>
+        internal static async Task TestAsync()
         {
             /*
             ///*
@@ -41,11 +44,11 @@ namespace ConcurrencyAsynchrony.AsynchronousProgramming.Basics
             DisplayPrimeCountsSeqAsync(GetPrimeCountFullParallelAsync, 1_000_000, 10);
             //*/
 
-            /*
+            
             ///*
-            _ = DisplayPrimesCountsSeqAsync(GetPrimeCountNonParallelAsync, 1_000_000, 10);
-            _ = DisplayPrimesCountsSeqAsync(GetPrimeCountSemiParallelAsync, 1_000_000, 10);
-            _ = DisplayPrimesCountsSeqAsync(GetPrimeCountFullParallelAsync, 1_000_000, 10);
+            await DisplayPrimesCountsSeqAsync(GetPrimeCountNonParallelAsync, 1_000_000, 10);
+            await DisplayPrimesCountsSeqAsync(GetPrimeCountSemiParallelAsync, 1_000_000, 10);
+            await DisplayPrimesCountsSeqAsync(GetPrimeCountFullParallelAsync, 1_000_000, 10);
             //*/
           
         }
