@@ -437,12 +437,24 @@ namespace ConcurrencyAsynchrony.AsynchronousProgramming.Functions
                     downloadTasks[i++] = GetWebPageAsync(uri.ToString());
                 }
 
+                
                 int j = 0;
                 foreach (var dt in downloadTasks)
                 {
                     string html = await dt;
                     WriteLine("The content length of the web page " + urls[j++] + " is " + html.Length);
                 }
+
+                // It is more efficient to use `Task.WhenAll` combinator by
+                // virtue of requiring only a single `await` for all the
+                // downloaded content rather than having an `await` for
+                // each downloaded content.
+                /*string[] allHtmlContent = await Task.WhenAll(downloadTasks);
+                int j = 0;
+                foreach (var html in allHtmlContent)
+                {
+                    WriteLine("The content length of the web page " + urls[j++] + " is " + html.Length);
+                }*/
             }
             catch (WebException ex)
             {

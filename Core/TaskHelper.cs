@@ -77,9 +77,68 @@ namespace Core
             };
             timer.Start();
 
-            
             return tcs.Task;
+        }
 
+        /// <summary>
+        /// Lets you await any task with a timeout.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result from a given task.</typeparam>
+        /// <param name="task">A given task.</param>
+        /// <param name="timeout">A given timeout.</param>
+        /// <returns>A task that is signaled upon completion.</returns>
+        public static async Task<TResult> WithTimeout<TResult>(this Task<TResult> task, TimeSpan timeout)
+        {
+            Task winner = await (Task.WhenAny(task, Task.Delay(timeout)));
+            if (winner != task)
+                throw new TimeoutException();
+            return await task; // unwrap result/re-throw
+        }
+
+        /// <summary>
+        /// Lets you abandon a task with a CancellationToken.
+        /// </summary>
+        /// <typeparam name="TResult">The type of the result from a given task.</typeparam>
+        /// <param name="task">A given task.</param>
+        /// <param name="ct">A given cancellation token.</param>
+        /// <returns></returns>
+        public static Task<TResult> WithCancellation<TResult>(this Task<TResult> task, CancellationToken ct)
+        {
+            var tcs = new TaskCompletionSource<TResult>();
+            var reg = ct.Register(() => tcs.TrySetCanceled());
+            task.ContinueWith(antecedentTask =>
+            {
+                reg.Dispose();
+                if (antecedentTask.IsCanceled)
+                    tcs.TrySetCanceled();
+                else if (antecedentTask.IsFaulted)
+                    tcs.TrySetException(antecedentTask.Exception.InnerException);
+                else
+                    tcs.TrySetResult(antecedentTask.Result);
+            });
+
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Works like WhenAll, except that if any of the tasks faultm
+        /// the resultant task faults immediately.
+        /// </summary>
+        /// <typeparam name="TResult">The of the result of the given tasks.</typeparam>
+        /// <param name="tasks">The given tasks.</param>
+        /// <returns>A task that is signled upon completion or fault.</returns>
+        public static async Task<TResult[]> WhenAllOrError<TResult>(params Task<TResult>[] tasks)
+        {
+            var killJoy = new TaskCompletionSource<TResult[]>();
+            foreach (var task in tasks)
+                task.ContinueWith(antecedentTask =>
+                {
+                    if (antecedentTask.IsCanceled)
+                        killJoy.TrySetCanceled();
+                    else if (antecedentTask.IsFaulted)
+                        killJoy.TrySetException(antecedentTask.Exception.InnerException);
+                });
+            return await await Task.WhenAny(killJoy.Task, Task.WhenAll(tasks));
         }
     }
 }

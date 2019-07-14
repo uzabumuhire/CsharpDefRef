@@ -81,7 +81,10 @@ namespace ConcurrencyAsynchrony
             //await AsynchronousProgramming.Basics.Demo.TestAsync();
             //WriteLine();
 
-            await AsynchronousProgramming.Functions.Demo.TestAsync();
+            //await AsynchronousProgramming.Functions.Demo.TestAsync();
+            //WriteLine();
+
+            await AsynchronousProgramming.Patterns.Demo.TestAsync();
         }
     }
 }
