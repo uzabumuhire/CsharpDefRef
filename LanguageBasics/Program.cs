@@ -1,4 +1,4 @@
-﻿using static System.Console; 
+﻿using static Core.ConsoleHelper;
 
 namespace Basics
 {
@@ -6,7 +6,13 @@ namespace Basics
     {
         static void Main(string[] args)
         {
-            WriteLine("Hello World!");
+            // ARRAYS
+            DisplayDemo("ARRAYS", ArraysDemo);
+        }
+
+        static void ArraysDemo()
+        {
+            Arrays.Demo.Run();
         }
     }
 }
