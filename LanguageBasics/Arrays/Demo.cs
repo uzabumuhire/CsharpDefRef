@@ -2,12 +2,16 @@
 
 using static System.Console;
 
+using static Core.MatrixHelper;
 using static Core.ConsoleHelper;
 
 namespace Basics.Arrays
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates basic usage of arrays.
+        /// </summary>
         internal static void Run()
         {
             Basics();
@@ -15,8 +19,126 @@ namespace Basics.Arrays
             WriteLine();
 
             DefaultElementInitialization();
+
+            WriteLine();
+
+            RectangularArrays();
+
+            WriteLine();
+
+            JaggedArrays();
         }
 
+        /// <summary>
+        /// Demonstrates usage of jagged arrays.
+        /// </summary>
+        static void JaggedArrays()
+        {
+            // *Jagged arrays* are arrays of arrays.
+
+        }
+
+        /// <summary>
+        /// Demonstrates usage of rectangular arrays.
+        /// </summary>
+        static void RectangularArrays()
+        {
+            // *Rectangular arrays* represent an n-dimensional
+            // block of memory.
+
+            // Rectangular arrays are declared using commas to
+            // separate each dimension.
+
+            // Declares a rectangular two-dimensional array,
+            // where the dimensions are 3 by 3.
+            int[,] matrix1 = new int[3, 3];
+
+            // `GetLength` method of an array returns the length
+            // for a given dimension (starting at 0).
+            for (int i = 0; i < matrix1.GetLength(0); i++)
+                for (int j = 0; j < matrix1.GetLength(1); j++)
+                    matrix1[i, j] = i * 3 + j;
+
+            Display2DMatrix(matrix1);
+
+            // A rectangular array can be initialized as follows
+            // to create an array identical to the previous one.
+            /*
+            int[,] matrix2 = new int[,]
+            {
+                {0, 1, 2 },
+                {3, 4, 5 },
+                {6, 7, 8 }
+            };
+            */
+
+            // Uses an array initializer.
+            int[,] matrix2 = 
+            {
+                {0, 1, 2 },
+                {3, 4, 5 },
+                {6, 7, 8 }
+            };
+
+            Display2DMatrix(matrix2);
+        }
+
+        /// <summary>
+        /// Demonstrates array default element initialization.
+        /// </summary>
+        static void DefaultElementInitialization()
+        {
+            // Creating an array always preinitializes
+            // the elements with default values. The
+            // default value for a type is the result
+            // of a bitwise zeroing of memory.
+
+            // Create an array of 1,000 integers, since
+            // `int` is a value type this allocates
+            // 1,000 integers in one contiguous block
+            // of memory. The default value for each
+            // element will be 0.
+            int[] a1 = new int[1000];
+            DisplayVal(a1[123], " | "); // displays 0
+
+            // Whether an array element type is a value
+            // type or a reference type has important
+            // performance implications.
+
+            // When the element type is a value type,
+            // each element value is allocated as part
+            // of the array.
+            PointValue[] a2 = new PointValue[1000];
+            DisplayVal(a2[500].X, ""); // diplays 0
+            WriteLine();
+
+            // Allocates 1,000 null references, because
+            // the element type is a reference type.
+            PointReference[] a3 = new PointReference[1000];
+            try
+            {
+                // Since `a3[500]` is `null`
+                // the following will produce
+                // a `NullReferenceException`.
+                DisplayVal(a3[500].X, " | ");
+            }
+            catch (NullReferenceException ex)
+            {
+                DisplayError(ex.ToString());
+            }
+
+            // To avoid the `NullReferenceException` runtime
+            // error, we must explicitly instantiante 1,000
+            // `PointReference` after instantiating the array.
+            for (int i = 0; i < a3.Length; i++)
+                a3[i] = new PointReference();
+
+            DisplayVal(a3[500].X, ""); // displays 0
+        }
+
+        /// <summary>
+        /// Demonstrates basics arrays usage.
+        /// </summary>
         static void Basics()
         {
             // An *array* represents a fixed number of
@@ -68,58 +190,6 @@ namespace Basics.Arrays
             // iterate through the array.
             for (int i = 0; i < vowels.Length; i++)
                 DisplaySpaceVal(vowels[i]);
-
-        }
-
-        static void DefaultElementInitialization()
-        {
-            // Creating an array always preinitializes
-            // the elements with default values. The
-            // default value for a type is the result
-            // of a bitwise zeroing of memory.
-
-            // Create an array of 1,000 integers, since
-            // `int` is a value type this allocates
-            // 1,000 integers in one contiguous block
-            // of memory. The default value for each
-            // element will be 0.
-            int[] a1 = new int[1000];
-            DisplayVal(a1[123], " | "); // displays 0
-
-            // Whether an array element type is a value
-            // type or a reference type has important
-            // performance implications.
-
-            // When the element type is a value type,
-            // each element value is allocated as part
-            // of the array.
-            PointValue[] a2 = new PointValue[1000];
-            DisplayVal(a2[500].X, ""); // diplays 0
-            WriteLine();
-
-            // Allocates 1,000 null references, because
-            // the element type is a reference type.
-            PointReference[] a3 = new PointReference[1000];
-            try
-            {
-                // Since `a3[500]` is `null`
-                // the following will produce
-                // a `NullReferenceException`.
-                DisplayVal(a3[500].X, " | "); 
-            }
-            catch (NullReferenceException ex)
-            {
-                DisplayError(ex.ToString());
-            }
-
-            // To avoid the `NullReferenceException` runtime
-            // error, we must explicitly instantiante 1,000
-            // `PointReference` after instantiating the array.
-            for (int i = 0; i < a3.Length; i++)
-                a3[i] = new PointReference();
-
-            DisplayVal(a3[500].X, "");
-
 
         }
     }

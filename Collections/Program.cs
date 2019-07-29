@@ -9,7 +9,7 @@ namespace Collections
         /// <summary>
         /// Demonstrates usage of collections in C#.
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">Program arguments.</param>
         static void Main(string[] args)
         {
             // ENUMERATION
