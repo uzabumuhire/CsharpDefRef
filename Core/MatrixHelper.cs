@@ -46,7 +46,10 @@ namespace Core
                         count++;
                     }
                     else
+                    {
+                        WriteLine();
                         return;
+                    }
                 }
                 WriteLine();
             }
@@ -115,7 +118,10 @@ namespace Core
                         count++;
                     }
                     else
+                    {
+                        WriteLine();
                         return;
+                    } 
                 }
                 WriteLine();
             }

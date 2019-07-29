@@ -27,6 +27,33 @@ namespace Basics.Arrays
             WriteLine();
 
             JaggedArrays();
+
+            WriteLine();
+
+            BoundsChecking();
+        }
+
+        static void BoundsChecking()
+        {
+            // All array indexing is bounds-checked by the runtime.
+            // An `IndexOutOfRangeException` is thrown if you use
+            // an invalid index. Array bounds checking is necessary
+            // for type safety and simplifies debugging. C# provides
+            // *unsafe* code that can explicitly bypass bounds
+            // checking.
+            
+            int[] a = new int[3];
+
+            try
+            {
+                // `IndexOutOfRangeException`
+                // thrown at runtime.
+                a[3] = 1; 
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                DisplayError(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -60,7 +87,7 @@ namespace Basics.Arrays
             Display2DJaggedMatrix(matrix1);
             WriteLine();
 
-            Preview2DJaggedMatrix(matrix1, 7);
+            Preview2DJaggedMatrix(matrix1, 6);
             WriteLine();
 
             /*
@@ -121,7 +148,7 @@ namespace Basics.Arrays
             Display2DMatrix(matrix1);
             WriteLine();
 
-            Preview2DMatrix(matrix1, 7);
+            Preview2DMatrix(matrix1, 6);
             WriteLine();
 
             /*
