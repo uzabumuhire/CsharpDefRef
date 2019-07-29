@@ -70,7 +70,6 @@ namespace Basics.Arrays
             // where the outermost dimension is 3.
             int[][] matrix1 = new int[3][];
 
-
             // The inner dimensions aren't specified in the
             // declaration because, unlike a rectangular array,
             // each inner array can be an arbitrary length.

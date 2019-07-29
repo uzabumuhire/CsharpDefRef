@@ -10,6 +10,9 @@ namespace Basics
         /// <param name="args">Program arguments.</param>
         static void Main(string[] args)
         {
+            // STRINGS
+            DisplayDemo("STRINGS", StringsDemo);
+
             // ARRAYS
             DisplayDemo("ARRAYS", ArraysDemo);
         }
@@ -20,6 +23,14 @@ namespace Basics
         static void ArraysDemo()
         {
             Arrays.Demo.Run();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of strings and characters.
+        /// </summary>
+        static void StringsDemo()
+        {
+            Strings.Demo.Run();
         }
     }
 }
