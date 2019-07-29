@@ -14,7 +14,7 @@ namespace Basics.Arrays
         /// </summary>
         internal static void Run()
         {
-            Basics();
+            Fundamentals();
 
             WriteLine();
 
@@ -238,9 +238,9 @@ namespace Basics.Arrays
         }
 
         /// <summary>
-        /// Demonstrates basics arrays usage.
+        /// Demonstrates arrays fundementals.
         /// </summary>
-        static void Basics()
+        static void Fundamentals()
         {
             // An *array* represents a fixed number of
             // variables (called *elements*) of a
