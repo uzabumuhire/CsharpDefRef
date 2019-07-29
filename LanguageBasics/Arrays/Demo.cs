@@ -36,6 +36,65 @@ namespace Basics.Arrays
         {
             // *Jagged arrays* are arrays of arrays.
 
+            // Jagged arrays are declared using successive
+            // square brackets to represent each dimension.
+
+            // Declares a jagged two-dimensional array,
+            // where the outermost dimension is 3.
+            int[][] matrix1 = new int[3][];
+
+
+            // The inner dimensions aren't specified in the
+            // declaration because, unlike a rectangular array,
+            // each inner array can be an arbitrary length.
+            // Each inner array is implicitly initialized to
+            // `null` rather than an empty array. Each inner
+            // array must be created manually.
+            for (int i = 0; i < matrix1.Length; i++)
+            {
+                matrix1[i] = new int[3]; // create inner array
+                for (int j = 0; j < matrix1[i].Length; j++)
+                    matrix1[i][j] = i * 3 + j;
+            }
+
+            Display2DJaggedMatrix(matrix1);
+            WriteLine();
+
+            Preview2DJaggedMatrix(matrix1, 7);
+            WriteLine();
+
+            /*
+            // A jagged array can be initialized.
+            int[][] matrix2 = new int[][]
+            {
+                new int[] {0, 1, 2},
+                new int[] {3, 4, 5},
+                new int[] {6, 7, 8}
+            };
+            */
+
+            // Shortens array initialization expressions by
+            // omitting the `new` operator and
+            // type qualifications.
+            int[][] matrix2 =
+            {
+                new int[] {0, 1, 2},
+                new int[] {3, 4, 5},
+                new int[] {6, 7, 8}
+            };
+
+            Display2DJaggedMatrix(matrix2);
+            WriteLine();
+
+            // `matrix3` is implicitly type to `int[][]`.
+            var matrix3 = new int[][]
+            {
+                new int[] {0, 1, 2},
+                new int[] {3, 4, 5},
+                new int[] {6, 7, 8}
+            };
+
+            Display2DJaggedMatrix(matrix3);
         }
 
         /// <summary>
@@ -60,10 +119,13 @@ namespace Basics.Arrays
                     matrix1[i, j] = i * 3 + j;
 
             Display2DMatrix(matrix1);
+            WriteLine();
 
-            // A rectangular array can be initialized as follows
-            // to create an array identical to the previous one.
+            Preview2DMatrix(matrix1, 7);
+            WriteLine();
+
             /*
+            // A rectangular array can be initialized.
             int[,] matrix2 = new int[,]
             {
                 {0, 1, 2 },
@@ -72,7 +134,9 @@ namespace Basics.Arrays
             };
             */
 
-            // Uses an array initializer.
+            // Shortens array initialization expressions by
+            // omitting the `new` operator and
+            // type qualifications.
             int[,] matrix2 = 
             {
                 {0, 1, 2 },
@@ -81,6 +145,17 @@ namespace Basics.Arrays
             };
 
             Display2DMatrix(matrix2);
+            WriteLine();
+
+            // `matrix3` is implicitly typed to int[,].
+            var matrix3 = new int[,]
+            {
+                {0, 1, 2 },
+                {3, 4, 5 },
+                {6, 7, 8 }
+            };
+
+            Display2DMatrix(matrix3);
         }
 
         /// <summary>
@@ -178,8 +253,15 @@ namespace Basics.Arrays
             // *Array initialization expression* let you
             // declare and populate an array in a single
             // step.
-            //char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'i' };
-            char[] vowels = { 'a', 'e', 'i', 'o', 'i' };
+            //char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+
+            // Shortens array initialization expressions by
+            // omitting the `new` operator and
+            // type qualifications.
+            char[] vowels1 = { 'a', 'e', 'i', 'o', 'u' };
+
+            Preview1DMatrix(vowels1, 3);
+            WriteLine();
 
             // The `Length` property returns the size
             // of the array (the number of elements) in
@@ -188,9 +270,32 @@ namespace Basics.Arrays
 
             // Using the `for` loop statement to
             // iterate through the array.
-            for (int i = 0; i < vowels.Length; i++)
-                DisplaySpaceVal(vowels[i]);
+            for (int i = 0; i < vowels1.Length; i++)
+                DisplaySpaceVal(vowels1[i]);
 
+            WriteLine();
+
+            // The `var` keyword tells the compiler to 
+            // implicitly type a local variable.
+            var vowels2 = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            Display1DMatrix(vowels2);
+            WriteLine();
+
+            // Implicit typing can be taken one stage further
+            // with arrays by omitting the type qualifier
+            // after the `new` keyword and have the compiler
+            // *infer* the array type.
+            var vowels3 = new[] { 'a', 'e', 'i', 'o', 'u' };
+            Display1DMatrix(vowels3);
+            WriteLine();
+
+            // For this the code above to work, the elements
+            // must all be implicitly convertible to a single
+            // type (and at least one of the element must be
+            // that type, and there must be exactly one best
+            // type).
+            var x = new[] { 1, 10_000_000_000 }; // all convertible to `long`
+            Display1DMatrix(x);
         }
     }
 }
