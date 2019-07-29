@@ -5,7 +5,10 @@ namespace Collections.CustomizableProxies.SimpleOrder
 {
     internal class Demo
     {
-        internal static void Test()
+        /// <summary>
+        /// Demonstrate a cusotmized extension of <see cref="KeyedCollection{TKey, TItem}"/>.
+        /// </summary>
+        internal static void Run()
         {
             SimpleOrder weekly = new SimpleOrder();
             /*

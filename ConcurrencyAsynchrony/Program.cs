@@ -25,14 +25,14 @@ namespace ConcurrencyAsynchrony
             // THREADING
             WriteLine("THREADING");
             WriteLine();
-            //ThreadingDemo();
+            ThreadingDemo();
 
             // TASKS
             WriteLine();
             WriteLine();
             WriteLine("TASKS");
             WriteLine();
-            //TasksDemo();
+            TasksDemo();
 
             // ASYNCHRONOUS PROGRAMMING
             WriteLine();
@@ -76,13 +76,14 @@ namespace ConcurrencyAsynchrony
         /// <summary>
         /// Demonstrates usage of ansychronous programming.
         /// </summary>
+        /// <returns>A task that is signaled upon completion.</returns>
         static async Task AsynchronousProgrammingDemoAsync()
         {
-            //await AsynchronousProgramming.Basics.Demo.TestAsync();
-            //WriteLine();
+            await AsynchronousProgramming.Basics.Demo.TestAsync();
+            WriteLine();
 
-            //await AsynchronousProgramming.Functions.Demo.TestAsync();
-            //WriteLine();
+            await AsynchronousProgramming.Functions.Demo.TestAsync();
+            WriteLine();
 
             await AsynchronousProgramming.Patterns.Demo.TestAsync();
         }

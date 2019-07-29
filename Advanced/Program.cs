@@ -6,98 +6,55 @@ namespace Advanced
 {
     class Program
     {
+        /// <summary>
+        /// Demonstrates usage of advanced concepts in C#.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             // DELEGATES
-            WriteLine("DELEGATES");
-            WriteLine();
-            DelegatesDemo();
+            DisplayDemo("DELEGATES", DelegatesDemo);
 
             // EVENTS
-            WriteLine();
-            WriteLine();
-            WriteLine("EVENTS");
-            WriteLine();
-            EventsDemo();
+            DisplayDemo("EVENTS", EventsDemo);
 
             // LAMBDA EXPRESSIONS
-            WriteLine();
-            WriteLine();
-            WriteLine("LAMBDA EXPRESSIONS");
-            WriteLine();
-            LambdaExpressionsDemo();
+            DisplayDemo("LAMBDA EXPRESSIONS", LambdaExpressionsDemo);
 
             // ANONYMOUS METHODS
-            WriteLine();
-            WriteLine();
-            WriteLine("ANONYMOUS METHODS");
-            WriteLine();
-            AnonymousMethodsDemo();
+            DisplayDemo("ANONYMOUS METHODS", AnonymousMethodsDemo);
 
             // ENUMERATION AND ITERATORS
-            WriteLine();
-            WriteLine();
-            WriteLine("ENUMERATION AND ITERATORS");
-            WriteLine();
-            EnumerationIteratorsDemo();
+            DisplayDemo("ENUMERATION AND ITERATORS", EnumerationIteratorsDemo);
 
             // NULLABLE TYPES
-            WriteLine();
-            WriteLine();
-            WriteLine("NULLABLE TYPES");
-            WriteLine();
-            NullableTypesDemo();
+            DisplayDemo("NULLABLE TYPES", NullableTypesDemo);
 
             // EXTENSION METHODS
-            WriteLine();
-            WriteLine();
-            WriteLine("EXTENSION METHODS");
-            WriteLine();
-            ExtensionMethodsDemo();
+            DisplayDemo("EXTENSION METHODS", ExtensionMethodsDemo);
 
             // ANONYMOUS TYPES
-            WriteLine();
-            WriteLine();
-            WriteLine("ANONYMOUS TYPES");
-            WriteLine();
-            AnonymousTypesDemo();
+            DisplayDemo("ANONYMOUS TYPES", AnonymousTypesDemo);
 
             // TUPLES
-            WriteLine();
-            WriteLine();
-            WriteLine("TUPLES");
-            WriteLine();
-            TuplesDemo();
+            DisplayDemo("TUPLES", TuplesDemo);
 
             // ATTRIBUTES
-            WriteLine();
-            WriteLine();
-            WriteLine("ATTRIBUTES");
-            WriteLine();
-            AttributesDemo();
+            DisplayDemo("ATTRIBUTES", AttributesDemo);
 
             // DYNAMIC BINDING
-            WriteLine();
-            WriteLine();
-            WriteLine("DYNAMIC BINDING");
-            WriteLine();
-            DynamicBindingDemo();
+            DisplayDemo("DYNAMIC BINDING", DynamicBindingDemo);
 
             // OPERATOR OVERLOADING
-            WriteLine();
-            WriteLine();
-            WriteLine("OPERATOR OVERLOADING");
-            WriteLine();
-            OperatorOverloadingDemo();
+            DisplayDemo("OPERATOR OVERLOADING", OperatorOverloadingDemo);
 
             // UNSAFE CODE AND POINTERS
-            WriteLine();
-            WriteLine();
-            WriteLine("UNSAFE CODE AND POINTERS");
-            WriteLine();
-            UnsafeCodePointersDemo();
+            DisplayDemo("UNSAFE CODE AND POINTERS", UnsafeCodePointersDemo);
         }
 
+        /// <summary>
+        /// Demonstrates usage of delegates.
+        /// </summary>
         static void DelegatesDemo()
         {
             Delegates.Basics.Demo.Test();
@@ -135,6 +92,9 @@ namespace Advanced
             Delegates.Compatibility.Demo.Covariance();
         }
 
+        /// <summary>
+        /// Demonstrates usage of events.
+        /// </summary>
         static void EventsDemo()
         {
             Events.Basics.Demo.Test();
@@ -148,6 +108,9 @@ namespace Advanced
             Events.NonGenericHandler.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of lambda expressions.
+        /// </summary>
         static void LambdaExpressionsDemo()
         {
             LambdaExpressions.Basics.Demo.Test();
@@ -157,11 +120,17 @@ namespace Advanced
             LambdaExpressions.Capturing.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of anonymous methods.
+        /// </summary>
         static void AnonymousMethodsDemo()
         {
             AnonymousMethods.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of enumeration and iterators.
+        /// </summary>
         static void EnumerationIteratorsDemo()
         {
             EnumerationIterators.Enumeration.Demo.Test();
@@ -175,26 +144,41 @@ namespace Advanced
             EnumerationIterators.Iterators.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of nullable types.
+        /// </summary>
         static void NullableTypesDemo()
         {
             NullableTypes.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of extension methods.
+        /// </summary>
         static void ExtensionMethodsDemo()
         {
             ExtensionMethods.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of anonymous types.
+        /// </summary>
         static void AnonymousTypesDemo()
         {
             AnonymousTypes.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of tuples.
+        /// </summary>
         static void TuplesDemo()
         {
             Tuples.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of attributes.
+        /// </summary>
         static void AttributesDemo()
         {
             Attributes.Basics.Demo.Test();
@@ -204,16 +188,25 @@ namespace Advanced
             Attributes.PropertyChangedPattern.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of dynamic binding.
+        /// </summary>
         static void DynamicBindingDemo()
         {
             DynamicBinding.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of operator overloading.
+        /// </summary>
         static void OperatorOverloadingDemo()
         {
             OperatorOverloading.Basics.Demo.Test();
         }
 
+        /// <summary>
+        /// Demonstrates usage of unsafe code and pointers.
+        /// </summary>
         static void UnsafeCodePointersDemo()
         {
             UnsafeCodePointers.Basics.Demo.Test();

@@ -5,6 +5,9 @@ namespace Advanced.Delegates.Interfaces
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates how interfaces can replace delegates.
+        /// </summary>
         internal static void Test()
         {
             int[] values = { 1, 2, 3 };

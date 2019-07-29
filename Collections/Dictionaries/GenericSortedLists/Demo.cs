@@ -3,52 +3,17 @@ using System.Collections.Generic;
 
 using static System.Console;
 
-namespace Collections
+namespace Collections.Dictionaries.GenericSortedLists
 {
-    static class Dictionaries
+    static class Demo
     {
-        // How to use `Dictionary<TKey, TValue>`
-        internal static void TestDictionary()
-        {
-            var d = new Dictionary<string, int>();
-
-            // Specify a case-insensitive equality comparer
-            // when using string keys.
-            //var d = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
-
-            d.Add("One", 1);
-            d["Two"] = 2;   // adds to dictionary, "Two" not already present
-            d["Two"] = 22;  // updates dictionary, "Two" is now present
-            d["Three"] = 3;
-
-            WriteLine(d["Two"]);                // 22
-            WriteLine(d.ContainsKey("One"));    // true (fast operation)
-            WriteLine(d.ContainsValue(3));      // true (slow operation)
-
-            int val = 0;
-            if (!d.TryGetValue("onE", out val))
-                WriteLine("No val");            // No val (case sensitive)
-
-            // Three different ways to enumerate the dictionary
-
-            foreach (KeyValuePair<string, int> kv in d)
-                Write(kv.Key + "->" + kv.Value + " | ");
-
-            WriteLine();
-
-            foreach (string k in d.Keys)
-                Write(k + "->" + d[k] + " | ");
-
-            WriteLine();
-
-            foreach (var v in d.Values)
-                Write(v + " | ");
-        }
-
-        // Uses reflection to load all the methods defined in `System.Object`
-        // into a sorted list keyed by name, and then enumerates their keys
-        // and values.
-        internal static void TestSortedList()
+        /// <summary>
+        /// Demonstrates usage of <see cref="SortedList{TKey, TValue}"/> by
+        /// using reflection to load all the methods defined in <see cref="object"/>
+        /// into a sorted list keyed by name, and then enumerates their keys
+        /// and values.
+        /// </summary>
+        internal static void Run()
         {
             // `MethodInfo` is in the `System.Reflection` namespace
             //var sl = new SortedList<string, MethodInfo>();
@@ -92,5 +57,4 @@ namespace Collections
             WriteLine((sl.Values[sl.Count - 1])[0].IsVirtual);  // True
         }
     }
-
 }

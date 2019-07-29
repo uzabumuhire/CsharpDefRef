@@ -4,6 +4,9 @@ namespace Advanced.Events.StandardPattern
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of the standard event pattern.
+        /// </summary>
         internal static void Test()
         {
             Stock stock = new Stock("THPW");

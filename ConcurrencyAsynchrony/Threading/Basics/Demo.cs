@@ -9,13 +9,10 @@ using static Core.ConsoleHelper;
 
 namespace ConcurrencyAsynchrony.Threading.Basics
 {
-    /// <summary>
-    /// Demonstrates basic usage of threads.
-    /// </summary>
     static class Demo
     {
         /// <summary>
-        /// Tests basic usage of threads.
+        /// Demonstrates basic usage of threads.
         /// </summary>
         internal static void Test()
         {

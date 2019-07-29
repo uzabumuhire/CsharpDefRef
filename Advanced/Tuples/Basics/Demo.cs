@@ -1,11 +1,12 @@
-﻿using System;
-
-using static Core.ConsoleHelper;
+﻿using static Core.ConsoleHelper;
 
 namespace Advanced.Tuples.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of tuples.
+        /// </summary>
         internal static void Test()
         {
             // The simplest way to create a tuple literal

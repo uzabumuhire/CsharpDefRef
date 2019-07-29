@@ -6,6 +6,9 @@ namespace Advanced.EnumerationIterators.Iterators
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of iterators.
+        /// </summary>
         internal static void Test()
         {
             // A `foreach` statement is a consumer of an enumerator.

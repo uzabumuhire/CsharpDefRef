@@ -12,6 +12,24 @@
     <Folder Include="CustomizableProxies\KeyedCollectionExtension\" />
     <Folder Include="CustomizableProxies\SimpleOrder\" />
     <Folder Include="CustomizableProxies\ReadOnlyProxy\" />
+    <Folder Include="Dictionaries\" />
+    <Folder Include="Dictionaries\GenericDictionaries\" />
+    <Folder Include="Dictionaries\GenericSortedLists\" />
+    <Folder Include="Lists\" />
+    <Folder Include="Lists\Arrays\" />
+    <Folder Include="Lists\ArrayLists\" />
+    <Folder Include="Lists\GenericLists\" />
+    <Folder Include="Lists\GenericLinkedLists\" />
+    <Folder Include="Lists\GenericQueues\" />
+    <Folder Include="Lists\GenericStacks\" />
+    <Folder Include="Lists\GenericHashSets\" />
+    <Folder Include="Lists\GenericSortedSets\" />
+    <Folder Include="Enumeration\" />
+    <Folder Include="Enumeration\Basics\" />
+    <Folder Include="Enumeration\Custom\" />
+    <Folder Include="PluginEqualityOrder\" />
+    <Folder Include="PluginEqualityOrder\Comparers\" />
+    <Folder Include="PluginEqualityOrder\EqualityComparers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />

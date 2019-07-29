@@ -7,6 +7,9 @@ namespace Advanced.EnumerationIterators.CollectionInitializers
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of collection initializers.
+        /// </summary>
         internal static void Test()
         {
             // Instantiate and populate an enumerable

@@ -4,6 +4,9 @@ namespace Advanced.OperatorOverloading.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of operator overloading.
+        /// </summary>
         internal static void Test()
         {
             Note b = new Note(2);

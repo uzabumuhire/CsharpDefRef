@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "Types\Types.csproj", "{2B4662F2-33A9-43C6-A942-C7482B2B8F65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamsIO", "StreamsIO\StreamsIO.csproj", "{DD21CB0E-8287-4053-A42F-240564EE4121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,5 +57,9 @@ Global
 		{2B4662F2-33A9-43C6-A942-C7482B2B8F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B4662F2-33A9-43C6-A942-C7482B2B8F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B4662F2-33A9-43C6-A942-C7482B2B8F65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD21CB0E-8287-4053-A42F-240564EE4121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD21CB0E-8287-4053-A42F-240564EE4121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD21CB0E-8287-4053-A42F-240564EE4121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD21CB0E-8287-4053-A42F-240564EE4121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

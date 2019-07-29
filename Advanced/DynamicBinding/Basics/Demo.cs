@@ -10,6 +10,9 @@ namespace Advanced.DynamicBinding.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of dynami binding.
+        /// </summary>
         internal static void Test()
         {
             // Custom dynamic binding : Duck implements IDMOP

@@ -6,6 +6,9 @@ namespace Advanced.Events.NonGenericHandler
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of non-generic event handler.
+        /// </summary>
         internal static void Test()
         {
             Stock stock = new Stock("THPW");

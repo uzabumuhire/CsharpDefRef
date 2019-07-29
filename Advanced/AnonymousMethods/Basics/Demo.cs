@@ -6,6 +6,9 @@ namespace Advanced.AnonymousMethods.Basics
     {
         delegate int Transformer(int i);
 
+        /// <summary>
+        /// Demonstrates usage of anonymous methods.
+        /// </summary>
         internal static void Test()
         {
             // Semantically equivalent to :

@@ -2,11 +2,16 @@
 
 namespace Collections.CustomizableProxies.CollectionExtension
 {
+    /// <summary>
+    /// Uses a customizable wrapper <see cref="Collection{T}"/> for lists
+    /// to provide custom behavior when animal are added to or remove
+    /// from the <see cref="Zoo"/>.
+    /// </summary>
     class AnimalCollection : Collection<Animal>
     {
-        // `AnimalCollection2` is already a fully functioning list of animals.
-        // Override each of the virtual methods in `Collection<Animal2>` 
-        // to maintain the `Zoo` property in `Animal2` automatically.
+        // `AnimalCollection` is already a fully functioning list of animals.
+        // Override each of the virtual methods in `Collection<Animal>` 
+        // to maintain the `Zoo` property in `Animal` automatically.
 
         Zoo zoo;
 

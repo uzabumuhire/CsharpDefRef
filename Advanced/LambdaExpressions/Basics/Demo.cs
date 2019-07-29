@@ -10,6 +10,9 @@ namespace Advanced.LambdaExpressions.Basics
     {
         internal delegate int Transformer(int i);
 
+        /// <summary>
+        /// Demonstrates basics of lambda expressions.
+        /// </summary>
         internal static void Test()
         {
             // `x` corresponds to the parameter `i` 

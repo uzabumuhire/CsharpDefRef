@@ -6,6 +6,9 @@ namespace Advanced.AnonymousTypes.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of anonymous types.
+        /// </summary>
         internal static void Test()
         {
             // An anonymous type is a simple class created

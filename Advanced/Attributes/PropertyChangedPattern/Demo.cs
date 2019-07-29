@@ -6,6 +6,9 @@ namespace Advanced.Attributes.PropertyChangedPattern
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of the property changed pattern.
+        /// </summary>
         internal static void Test()
         {
             Customer c = new Customer();

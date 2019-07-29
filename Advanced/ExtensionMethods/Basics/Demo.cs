@@ -6,6 +6,9 @@ namespace Advanced.ExtensionMethods.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of extension methods.
+        /// </summary>
         internal static void Test()
         {
             // An extension method can be called

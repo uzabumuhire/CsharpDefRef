@@ -8,6 +8,9 @@ namespace Advanced.LambdaExpressions.Capturing
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates closure or capturing outer variables with lambda expressions.
+        /// </summary>
         internal static void Test()
         {
             // Closure : capturing outer variables.

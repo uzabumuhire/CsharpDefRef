@@ -6,7 +6,10 @@ namespace Collections.CustomizableProxies.CollectionExtension
 {
     static class Demo
     {
-        internal static void CustomUsage()
+        /// <summary>
+        /// Demonstrates how to extend and customize a collection.
+        /// </summary>
+        internal static void Run()
         {
             Zoo zoo = new Zoo("Pairi Daiza");
             Animal kangaroo = new Animal("Kangaroo", 10);

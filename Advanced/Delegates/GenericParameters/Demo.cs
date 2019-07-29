@@ -5,7 +5,7 @@ namespace Advanced.Delegates.GenericParameters
     public class Demo
     {
         /// <summary>
-        /// Demonstrates wrtiting plug-in methods with generic delegates.
+        /// Demonstrates writing plug-in methods with generic delegates.
         /// </summary>
         internal static void Test()
         {

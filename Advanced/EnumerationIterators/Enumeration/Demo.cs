@@ -4,6 +4,9 @@ namespace Advanced.EnumerationIterators.Enumeration
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of enumeration.
+        /// </summary>
         internal static void Test()
         {
             // A high-level way of iterating

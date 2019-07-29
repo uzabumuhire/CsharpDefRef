@@ -5,7 +5,7 @@ namespace Advanced.Delegates.PlugInMethods
     static class Demo
     {
         /// <summary>
-        /// Demonstrates wrtiting plug-in methods with delegates.
+        /// Demonstrates writing plug-in methods with delegates.
         /// </summary>
         internal static void Test()
         {

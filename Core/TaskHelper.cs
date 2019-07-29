@@ -131,7 +131,7 @@ namespace Core
         {
             var killJoy = new TaskCompletionSource<TResult[]>();
             foreach (var task in tasks)
-                task.ContinueWith(antecedentTask =>
+                await task.ContinueWith(antecedentTask => // why not use an await.
                 {
                     if (antecedentTask.IsCanceled)
                         killJoy.TrySetCanceled();

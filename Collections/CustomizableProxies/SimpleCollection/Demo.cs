@@ -4,8 +4,11 @@ namespace Collections.CustomizableProxies.SimpleCollection
 {
     static class Demo
     {
-        // Tests typical skeleton use of `Collection<T>`.
-        internal static void SimpleUsage()
+        /// <summary>
+        /// Demonstrates typical skeleton use
+        /// of customized collection.
+        /// </summary>
+        internal static void Run()
         {
             Zoo zoo = new Zoo();
             zoo.Animals.Add(new Animal("Kangaroo", 10));

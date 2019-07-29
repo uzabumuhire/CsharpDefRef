@@ -8,6 +8,9 @@ namespace Advanced.NullableTypes.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of nullable types.
+        /// </summary>
         internal static void Test()
         {
             // Reference types can represent a nonexistent value with

@@ -1,4 +1,7 @@
-﻿using static System.Console;
+﻿using System;
+using System.Threading.Tasks;
+
+using static System.Console;
 using static System.ConsoleColor;
 
 namespace Core
@@ -60,8 +63,6 @@ namespace Core
             DisplayFormatedMessage("method info", message, DarkCyan, White, DarkCyan);
         }
 
-        
-
         static void DisplayFormatedMessage(
             string messageType,
             string message, 
@@ -93,6 +94,24 @@ namespace Core
             WriteLine(m);
 
             ResetColor();
+        }
+
+        public static void DisplayDemo(string message, Action demo)
+        {
+            WriteLine();
+            WriteLine();
+            WriteLine(message);
+            WriteLine();
+            demo();
+        }
+
+        public static async Task DisplayDemoAsync(string message, Func<Task> demo)
+        {
+            WriteLine();
+            WriteLine();
+            WriteLine(message);
+            WriteLine();
+            await demo();
         }
     }
 }

@@ -7,7 +7,10 @@ namespace Collections.CustomizableProxies.KeyedCollectionExtension
 {
     static class Demo
     {
-        internal static void CustomUsage()
+        /// <summary>
+        /// Demonstrates how to extend and customize a keyed collection.
+        /// </summary>
+        internal static void Run()
         {
             Zoo zoo = new Zoo("Virunga");
             Animal kangaroo = new Animal("Kangaroo", 10);

@@ -4,6 +4,9 @@ namespace Advanced.Events.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates basic usage of events.
+        /// </summary>
         internal static void Test()
         {
             Stock stock = new Stock("THPW");

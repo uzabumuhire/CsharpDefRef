@@ -8,6 +8,9 @@ namespace Advanced.UnsafeCodePointers.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of unsafe code and pointers to process bitmap images.
+        /// </summary>
         internal static void Test()
         {
             // Get original image

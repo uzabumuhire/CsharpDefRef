@@ -6,6 +6,9 @@ namespace Advanced.Attributes.Basics
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates basic usage of attributes.
+        /// </summary>
         internal static void Test()
         {
             CallerInfoUsage();

@@ -7,7 +7,11 @@ namespace Collections.CustomizableProxies.ReadOnlyProxy
 {
     static class Demo
     {
-        internal static void ReadOnlyView()
+        /// <summary>
+        /// Demonstrates how to use a read only proxy
+        /// <see cref="ReadOnlyList"/>.
+        /// </summary>
+        internal static void Run()
         {
             ReadOnlyList rol = new ReadOnlyList();
 
@@ -19,7 +23,7 @@ namespace Collections.CustomizableProxies.ReadOnlyProxy
             rol.AddInternally();
             DisplayCollectionWithSpace(rol.Names);
 
-            //rol.Names.Add("Test"); // complite error
+            //rol.Names.Add("Test"); // compiler error
             //((IList<string>) rol.Names).Add("test"); // NotSupportedException
         }
     }

@@ -19,6 +19,10 @@ namespace ConcurrencyAsynchrony.AsynchronousProgramming.Patterns
 {
     static class Demo
     {
+        /// <summary>
+        /// Demonstrates usage of asynchronous patterns.
+        /// </summary>
+        /// <returns>A task that is signaled upon completion or fault.</returns>
         internal static async Task TestAsync()
         {
             // Cancellation asynchronous pattern
