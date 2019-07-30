@@ -10,6 +10,9 @@ namespace Basics
         /// <param name="args">Program arguments.</param>
         static void Main(string[] args)
         {
+            // TYPES
+            DisplayDemo("TYPES", TypesDemo);
+
             // STRINGS
             DisplayDemo("STRINGS", StringsDemo);
 
@@ -31,6 +34,14 @@ namespace Basics
         static void StringsDemo()
         {
             Strings.Demo.Run();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of types.
+        /// </summary>
+        static void TypesDemo()
+        {
+            Types.Demo.Run();
         }
     }
 }
