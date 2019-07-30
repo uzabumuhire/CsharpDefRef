@@ -12,6 +12,45 @@ namespace Basics.Types
         internal static void Run()
         {
             Fundamentals();
+
+            WriteLine();
+
+            CustomTypes();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of custom types.
+        /// </summary>
+        static void CustomTypes()
+        {
+            // Data is created by *instantiating* a type.
+
+            // Predefined types can be instantiated simply
+            // by using a literal (such as 12 or "Hello world").
+
+            // The `new` operator creates instances of a custom type.
+            // Immediately after the `new` operator instantiates an
+            // object, the object's *constructor* is called to perform
+            // initialization.
+
+            // Creates and declares instances of the `UnitConverter` type.
+            UnitConverter feetToInchesConverter = new UnitConverter(12);
+            UnitConverter milesToFeetConverter = new UnitConverter(5280);
+
+            DisplayVal(feetToInchesConverter.Convert(30), " | "); // 360
+            DisplayVal(feetToInchesConverter.Convert(100), " | "); // 1200
+            DisplayVal(feetToInchesConverter.Convert(
+                milesToFeetConverter.Convert(1)), " | "); // 63360
+
+            // Creates two `Panda`, prints their names
+            // and then their total population.
+            Panda p1 = new Panda("Pan Dee");
+            Panda p2 = new Panda("Pan Dah");
+
+            DisplayVal(p1.Name, " | ");
+            DisplayVal(p2.Name, " | ");
+
+            WriteLine($"The total population of pandas : {Panda.Population}");
         }
 
         /// <summary>
