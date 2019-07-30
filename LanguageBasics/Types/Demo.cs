@@ -1,5 +1,7 @@
 ﻿using static System.Console;
 
+using Basics.Arrays;
+
 using static Core.ConsoleHelper;
 
 namespace Basics.Types
@@ -20,6 +22,51 @@ namespace Basics.Types
             WriteLine();
 
             Conversions();
+
+            WriteLine();
+
+            // All C# types fall into the following categories :
+            // - values types
+            // - reference types
+            // - generic type parameters
+            // - pointer types
+
+            // *Value types* comprise most built-in types (specifically, all
+            // numeric types, the `char` type, and the `bool` type) as well
+            // as custom `struct` and `enum` types.
+
+            // *Reference types* comprises all class, delegate and interface
+            // types (This includes the predefined `string` type).
+
+            // The fundamental difference between value types and reference
+            // types is how they are handled in memory.
+
+            ValueTypes();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of value types.
+        /// </summary>
+        static void ValueTypes()
+        {
+            // The content of a *value type* variable or constant
+            // is simply a value.
+            // The assignment of a value-type instance always
+            // copies the instance. `pv1` and `pv2` have
+            // independent storage.
+
+            PointValue pv1 = new PointValue();
+            pv1.X = 7;
+
+            PointValue pv2 = pv1; // assignment causes copy
+
+            DisplayBarVal(pv1.X);
+            DisplayBarVal(pv2.X);
+
+            pv1.X = 9; // changes `pv1.X` but not `pv2.X`
+
+            DisplayBarVal(pv1.X);
+            DisplayBarVal(pv2.X);
         }
 
         /// <summary>
