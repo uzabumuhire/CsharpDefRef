@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using System;
+using static System.Console;
 
 using Basics.Arrays;
 
@@ -42,6 +43,63 @@ namespace Basics.Types
             // types is how they are handled in memory.
 
             ValueTypes();
+
+            WriteLine();
+
+            ReferenceTypes();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of reference types.
+        /// </summary>
+        static void ReferenceTypes()
+        {
+            // A reference type is more complex than
+            // a value type, having two parts: an 
+            // *object* and the *reference* to that
+            // object.
+
+            // The content of a reference-type variable
+            // or constant is a reference to an object
+            // that contains the value.
+            PointReference pr1 = new PointReference();
+            pr1.X = 7;
+
+            // Assigning a reference-type variable copies the
+            // reference, not the object instance. This allows
+            // multiple variable to refer to the same object
+            // something not ordinarily possible with value
+            // types.
+
+            // `pr1` and `pr2` are two references that point
+            // to the same object.
+            PointReference pr2 = pr1; // copies pr1 reference
+
+            DisplayBarVal(pr1.X);
+            DisplayBarVal(pr2.X);
+
+            pr1.X = 9; // change pr1.X
+
+            DisplayBarVal(pr1.X);
+            DisplayBarVal(pr2.X);
+
+            // A reference can be assigned the literal `null`,
+            // indicating that the reference points to no
+            // object.
+
+            PointReference pr3 = null;
+
+            DisplayBarVal(pr3 == null);
+
+            try
+            {
+                DisplayBarVal(pr3.X);
+            }
+            catch (NullReferenceException ex)
+            {
+                WriteLine();
+                DisplayError(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -51,6 +109,14 @@ namespace Basics.Types
         {
             // The content of a *value type* variable or constant
             // is simply a value.
+
+            // A value-type cannot ordinarily have a null value
+            // for this will generate a compile-time error.
+
+            // C# also has a construct called *nullable types*
+            // for representing value-type nulls.
+
+            
             // The assignment of a value-type instance always
             // copies the instance. `pv1` and `pv2` have
             // independent storage.
@@ -67,6 +133,8 @@ namespace Basics.Types
 
             DisplayBarVal(pv1.X);
             DisplayBarVal(pv2.X);
+
+
         }
 
         /// <summary>
