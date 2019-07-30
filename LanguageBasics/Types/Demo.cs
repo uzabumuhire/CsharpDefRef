@@ -16,6 +16,70 @@ namespace Basics.Types
             WriteLine();
 
             CustomTypes();
+
+            WriteLine();
+
+            Conversions();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of conversions.
+        /// </summary>
+        static void Conversions()
+        {
+            // C# can convert between instances of compatible types.
+
+            // A *conversion* always creates an new value from an
+            // existing one. Conversions can be either *implicit*
+            // or *explicit*.
+
+            // If the compiler can determine that a conversion will
+            // *always* fail, both kinds of conversion are prohibited.
+
+            // The following *numeric conversions* are built into the
+            // language.
+
+            // C# also support :
+            // - *reference conversions*
+            // - *boxing/unboxing conversions*
+            // - *custom conversions*
+
+            // The compiler doesn't enforce the following rules with
+            // custom conversions, so it's possible for badly designed
+            // types to behave otherwise.
+
+            // Implicit conversions happen automatically.
+
+            // Implicit conversions are allowed when both of the 
+            // following are true:
+            // - the compiler can guarantee they will always succeed.
+            // - no information is lost in conversion. (A minor caveat
+            //   is that very large `long` values loose information
+            //   when converted to `double`).
+
+            int x = 12345; // int a 32-bit integer
+            DisplayBarVal(int.MaxValue);
+            DisplayBarVal(x);
+
+            // Implicitly converts an `int` to a `long` (which has
+            // twice the bitwise capacity of an `int`).
+            long y = x; // Implicit conversion to 64-bit integer
+            DisplayBarVal(long.MaxValue);
+            DisplayBarVal(y);
+
+            // Explicit conversions require a *cast*
+
+            // Explicit conversions are required when the following
+            // is true :
+            // - the compiler cannot guarantee they will always
+            //   succeed.
+            // - information may be lost  during converision.
+
+            // Explicitly cast an `int` to a `short` (which has
+            // half the capacity of an `int`)
+            short z = (short)x; // Explicit conversion to 16-bit integer.
+            DisplayBarVal(short.MaxValue);
+            WriteLine(z);
         }
 
         /// <summary>
@@ -37,18 +101,18 @@ namespace Basics.Types
             UnitConverter feetToInchesConverter = new UnitConverter(12);
             UnitConverter milesToFeetConverter = new UnitConverter(5280);
 
-            DisplayVal(feetToInchesConverter.Convert(30), " | "); // 360
-            DisplayVal(feetToInchesConverter.Convert(100), " | "); // 1200
-            DisplayVal(feetToInchesConverter.Convert(
-                milesToFeetConverter.Convert(1)), " | "); // 63360
+            DisplayBarVal(feetToInchesConverter.Convert(30)); // 360
+            DisplayBarVal(feetToInchesConverter.Convert(100)); // 1200
+            DisplayBarVal(feetToInchesConverter.Convert(
+                milesToFeetConverter.Convert(1))); // 63360
 
             // Creates two `Panda`, prints their names
             // and then their total population.
             Panda p1 = new Panda("Pan Dee");
             Panda p2 = new Panda("Pan Dah");
 
-            DisplayVal(p1.Name, " | ");
-            DisplayVal(p2.Name, " | ");
+            DisplayBarVal(p1.Name);
+            DisplayBarVal(p2.Name);
 
             WriteLine($"The total population of pandas : {Panda.Population}");
         }
@@ -84,11 +148,11 @@ namespace Basics.Types
             // Declaring a variable of type `int` and performing
             // function with instances of the `int` type.
             int x = 12 * 30;
-            DisplayVal(x, " | ");
+            DisplayBarVal(x);
 
             // A *constant* always represents the same value.
             const int y = 360;
-            DisplayVal(y, " | ");
+            DisplayBarVal(y);
 
             // `string` is a predefined type for representing
             // a sequence of characters.
@@ -96,10 +160,10 @@ namespace Basics.Types
             // Work with strings by calling functions on them.
             string message = "Hello world";
             string upperMessage = message.ToUpper();
-            DisplayVal(upperMessage, " | ");
+            DisplayBarVal(upperMessage);
 
             message = message + x.ToString();
-            DisplayVal(message, " | ");
+            DisplayBarVal(message);
 
             // `bool` is a predefined type that has exactly two 
             // values : `true` and `false`. The `bool` type is 
