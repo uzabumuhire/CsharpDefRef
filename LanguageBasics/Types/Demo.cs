@@ -47,6 +47,72 @@ namespace Basics.Types
             WriteLine();
 
             ReferenceTypes();
+
+            WriteLine();
+
+            PredefinedTypes();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of predefined types.
+        /// </summary>
+        static void PredefinedTypes()
+        {
+            // Predefined types in C# are :
+
+            // Values types :
+            // - Numeric
+            //  * Signed integer (`sbyte`, `short`, `int`, `long`)
+            //  * Unsigned integer (`byte`, `ushort`, `uint`, `ulong`)
+            //  * Real number (`float`, `double`, `decimal`)
+            // - Logical (`bool`)
+            // - Character (`char`)
+
+            // Reference types
+            // - String (`string`)
+            // - Object (`object`)
+
+            DisplayBarVal(sbyte.MaxValue);
+            DisplayBarVal(byte.MaxValue);
+
+            DisplayBar();
+
+            DisplayBarVal(short.MaxValue);
+            DisplayBarVal(ushort.MaxValue);
+
+            DisplayBar();
+
+            DisplayBarVal(int.MaxValue);
+            DisplayBarVal(uint.MaxValue);
+
+            DisplayBar();
+
+            DisplayBarVal(long.MaxValue);
+            DisplayBarVal(ulong.MaxValue);
+
+            DisplayBar();
+
+            DisplayBarVal(float.MaxValue);
+            DisplayBarVal(double.MaxValue);
+            DisplayBarVal(decimal.MaxValue);
+
+            // Predefined types in C# are alias Framework types
+            // in the `System` namespace.
+
+            // There is only syntactic difference between these
+            // two statements.
+            //int x = 5;
+            //System.Int32 x = 5;
+
+            // The set of predefined *value* types excluding
+            // `decimal` are known as *primitve types* in 
+            // the CLR. Primitive types are so called because
+            // they are supported directly via instructions
+            // in compiled code, and this usually translates
+            // to direct support on the underlying processor.
+
+            // The `System.IntPtr` and `System.UIntPtr` types
+            // are also primitive.
         }
 
         /// <summary>
