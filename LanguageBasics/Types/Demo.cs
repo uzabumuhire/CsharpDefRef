@@ -64,6 +64,7 @@ namespace Basics.Types
             // that contains the value.
             PointReference pr1 = new PointReference();
             pr1.X = 7;
+            pr1.Y = 0;
 
             // Assigning a reference-type variable copies the
             // reference, not the object instance. This allows
@@ -123,6 +124,7 @@ namespace Basics.Types
 
             PointValue pv1 = new PointValue();
             pv1.X = 7;
+            pv1.Y = 0;
 
             PointValue pv2 = pv1; // assignment causes copy
 
@@ -134,6 +136,9 @@ namespace Basics.Types
             DisplayBarVal(pv1.X);
             DisplayBarVal(pv2.X);
 
+            MyStruct ms = new MyStruct();
+            ms.b = 0;
+            ms.l = 0L;
 
         }
 
