@@ -13,6 +13,78 @@ namespace Basics.Numerics
         internal static void Run()
         {
             Fundamentals();
+
+            WriteLine();
+
+            Conversions();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of numeric conversions.
+        /// </summary>
+        static void Conversions()
+        {
+            // Converting between integral types.
+
+            // Integral type conversions are *implicit* when the
+            // destination type can represent every possible
+            // value of the source type. Otherwise, *explicit*
+            // conversion is required.
+
+            int x = 12345678;   // `int` is a 32-bit integer
+
+            long y = x;         // implicit conversion to 64-bit integral type
+            DisplayBarVal($"int ({x}) to long ({y})");
+
+            short z = (short)x; // explicit conversion to 16-bit integral type
+            DisplayBarVal($"int ({x}) to short ({z})"); // loss of infos
+
+            // Converting between floating-point types.
+
+            // A `float` can be implicitly converted to a `double`,
+            // since a `double` can represent every possible value
+            // of a `float`. The reverse converion must be explicit.
+
+
+            // Converting between floating-point and integral types.
+
+            // All integral types may be implicitly converted to all
+            // floating-point types.
+
+            int i1 = 1;
+            float f1 = i1; // implicit conversion
+
+            // The reverse conversion must be explicit.
+
+            int i2 = (int)f1; // explicit conversion
+
+            // When you cast from a floating-point type to an integeral
+            // type, any fractional portion is truncated; no rounding 
+            // is performed. The static class System.Convert provides
+            // methods that round while converting between various
+            // numeric types.
+
+            // Implicitly converting a large integral type to a floating-
+            // point type preserves *magnititude* (how big of range the
+            // data type can fit) but may occasionaly lose *precision*
+            // (how much a number an be can be representd by a data type).
+            // This is because floating-point types always have more
+            // magnititude than integral types, but may have less
+            // precision.
+
+            int i3 = 100_000_001;
+            float f2 = i3;          // magnitude preserved, precision lost
+            DisplayBarVal($"int ({i3}) to float ({f2})");
+
+            int i4 = (int)f2;       // 100_000_000
+            DisplayBarVal($"float ({f2}) back int ({i4})");
+
+            // Decimal conversions.
+
+            // All integral types can be implicitly converted to the
+            // decimal type, since a decimal represent every possible
+            // C# integral-type value. All other numeric conversion to
+            // and from a decimal tye must be explicit.
         }
 
         /// <summary>
