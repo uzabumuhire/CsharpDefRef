@@ -13,12 +13,16 @@ namespace Basics
             // TYPES
             DisplayDemo("TYPES", TypesDemo);
 
+            // NUMERICS
+            DisplayDemo("NUMERICS", NumericsDemo);
+
             // STRINGS
             DisplayDemo("STRINGS", StringsDemo);
 
             // ARRAYS
             DisplayDemo("ARRAYS", ArraysDemo);
         }
+
 
         /// <summary>
         /// Demonstrates basic usage of arrays.
@@ -34,6 +38,14 @@ namespace Basics
         static void StringsDemo()
         {
             Strings.Demo.Run();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of numeric types.
+        /// </summary>
+        static void NumericsDemo()
+        {
+            Numerics.Demo.Run();
         }
 
         /// <summary>

@@ -9,6 +9,7 @@
     <Folder Include="Strings\" />
     <Folder Include="Arrays\" />
     <Folder Include="Types\" />
+    <Folder Include="Numerics\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
