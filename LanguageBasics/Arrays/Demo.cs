@@ -211,7 +211,6 @@ namespace Basics.Arrays
             // of the array.
             PointValue[] a2 = new PointValue[1000];
             DisplayVal(a2[500].X, ""); // diplays 0
-            WriteLine();
 
             // Allocates 1,000 null references, because
             // the element type is a reference type.

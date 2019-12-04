@@ -164,7 +164,6 @@ namespace Basics.Types
             }
             catch (NullReferenceException ex)
             {
-                WriteLine();
                 DisplayError(ex.ToString());
             }
         }

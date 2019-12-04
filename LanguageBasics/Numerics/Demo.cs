@@ -1,4 +1,6 @@
-﻿using static System.Console;
+﻿using System;
+
+using static System.Console;
 
 using static Core.ConsoleHelper;
 using static Core.MatrixHelper;
@@ -17,6 +19,163 @@ namespace Basics.Numerics
             WriteLine();
 
             Conversions();
+
+            WriteLine();
+
+            Operators();
+        }
+
+        /// <summary>
+        /// Demonstrates basic usage of operators.
+        /// </summary>
+        static void Operators()
+        {
+            // Arithmetic operators.
+
+            // The arthmetic operators (+, -, *, /, %) are defined for all
+            // numeric types except the 8- and 16-bit integral types.
+            // - Additionb (+)
+            // - Substraction (-)
+            // - Multiplication (*)
+            // - Division (/)
+            // - Remainder after division (%)
+
+            // Increment and decrement operators.
+
+            // The increment and decrement operators (++, --) increment and
+            // decrement numeric types by 1. The operator can either follow
+            // or procede the variable, depending on whether you want its
+            // value *before* or *after* the increment/decrement.
+            int x = 0, y = 0;
+            DisplayBarVal(x++); // outputs 0; x is now 1
+            DisplayBarVal(++y); // outputs 1; y is now 1
+
+            // Specialized operation on integral types.
+
+            // Division
+
+            // Division operators on integral types always truncate remainders
+            // (round toward zero).
+
+            int a = 2 / 3;
+            DisplayBarVal(a); // outputs 0
+
+            // Dividing by the *literal* or *constant* 0 generates a compile-
+            // time error.
+            //const int d = 0;
+            //int z = 5 / 0; // compile-time error
+            //int z = 5 / d; // compile-time error
+
+            // Dividing by a variable whose value is zero generates a runtime
+            // error : `DivideByZeroException`
+
+            int b = 0;
+            try
+            {
+                int c = 5 / b; // throws `DivideByZeroException`
+            }
+            catch (DivideByZeroException ex)
+            {
+                DisplayError(ex.ToString());
+            }
+
+            // Overflow.
+
+            // At runtime, arithmetic operations on integral types can overflow.
+            // By default, this happens silently - no exception is thrown, and
+            // the result exhibts "wraparound" behaviour, as though the
+            // was done on a larger integer type and the extra significant bits
+            // discarded.
+
+            // Decrementing the minimum possible `int` value results in the
+            // maximum possible `int` value.
+            int iMin = int.MinValue;
+            iMin--;
+            DisplayBarVal(iMin == int.MaxValue); // True
+
+            int iMax = int.MaxValue;
+            iMax++;
+            DisplayBarVal(iMax == int.MinValue); // True
+
+            // Overflow check operators.
+
+            // The `checked` operator tells the runtime to generate an
+            // `OverFlowException` rather than overflowing silently when an
+            // integral-type expression or statement exceeds the arithmetic
+            // limits of that type. The `checked` operator affects expressions
+            // with the ++, +, --, - (binary and unary), *, /, and explicit
+            // conversion operators between integeral types.
+
+            // The `checked` operator has no effect on the `double` and `float`
+            // types (which overflow to special "infinite" values.
+            double dMin = double.MinValue;
+            try
+            {
+                dMin--;
+                DisplayBarVal(dMin);
+                dMin--;
+                DisplayBarVal(dMin);
+                DisplayBarVal(double.IsNegativeInfinity(dMin));
+                DisplayBarVal(double.NegativeInfinity);
+            }
+            catch (OverflowException ex)
+            {
+                DisplayError(ex.ToString());
+            }
+
+            // The `checked` operator has no effect on the `decimal` type which 
+            // is always checked.
+            decimal decMin = decimal.MinValue;
+            try
+            {
+                decMin--;
+                DisplayBarVal(decMin);
+            }
+            catch (OverflowException ex)
+            {
+                DisplayError(ex.ToString());
+            }
+
+            // `checked` can be used around either an expression or a statement
+            // block.
+            int p = 1_000_000;
+            int q = 1_000_000;
+
+            try
+            {
+                int result = checked(p * q); // checks just the expression
+            }
+            catch (OverflowException ex)
+            {
+                DisplayError(ex.ToString());
+            }
+
+            // You can make arithmetic overflow checking the default for all
+            // expressions in a program by compiling with the `/checked` command
+            // line switch (in Visual Studio, go to Advanced Build Settings).
+            // If you need then to disable overflow checking just for specific
+            // expressions or statements, you can do so with the `unchecked`
+            // operator.
+
+            // The following code will not throw an exceptions - even if
+            // compiled with `/checked`.
+            int i = int.MaxValue;
+            int j = unchecked(i + 1);
+            unchecked
+            {
+                int k = i + 1;
+                int l = k + j;
+                DisplayBarVal(l);
+            }
+
+            // Overflow checking for constant expressions.
+
+            // Regardless of the `/checked` compiler switch, epxressions
+            // evaluated at compile-time are always overflow-checked - unless
+            // you apply the `unchecked` operator.
+            //int m = int.MaxValue + 1; // compile-time error.
+            int n = unchecked(int.MaxValue + 1); // no errors
+            DisplayBarVal(n);
         }
 
         /// <summary>

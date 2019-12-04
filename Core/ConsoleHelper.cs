@@ -135,6 +135,9 @@ namespace Core
             ConsoleColor titleForegroudColor ,
             ConsoleColor messageColor)
         {
+            WriteLine();
+            WriteLine();
+
             ResetColor();
 
             BackgroundColor = titleBackgroundColor;
@@ -159,6 +162,8 @@ namespace Core
             WriteLine(m);
 
             ResetColor();
+
+            WriteLine();
         }
 
         /// <summary>
